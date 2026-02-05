@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brutalism Layout</title>
+</head>
+<body style="margin: 0; padding: 0; background-color: #f0f0f0; font-family: 'Arial Black', 'Helvetica Neue', sans-serif;">
+
+<!-- 主内容容器 -->
+<section style="max-width: 600px; margin: 0 auto; box-sizing: border-box; color: #000; line-height: 1.4; padding: 40px 15px;">
+
+    <!-- ==============================================
+         一、标题样式 (强力视觉)
+    ============================================== -->
+    
+    <!-- 组件：H2 二级标题 (双重边框+实色阴影) -->
+    <section style="margin-bottom: 40px; transform: rotate(-1deg);">
+        <div style="background: #00ff00; border: 4px solid #000; padding: 15px; box-shadow: 10px 10px 0px #000; display: inline-block;">
+            <h2 style="font-size: 32px; font-weight: 900; margin: 0; text-transform: uppercase; line-height: 1;">
+                粗野主义标题 H2
+            </h2>
+        </div>
+    </section>
+
+    <!-- 组件：H3 三级标题 (警示条风格) -->
+    <section style="margin-bottom: 25px;">
+        <h3 style="font-size: 20px; font-weight: 800; background: #000; color: #fff; padding: 5px 20px; display: inline-block; transform: skewX(-10deg);">
+            原始与反叛 H3
+        </h3>
+    </section>
+
+
+    <!-- ==============================================
+         二、文本与内容块
+    ============================================== -->
+
+    <!-- 组件：标准段落 P (超粗边框容器) -->
+    <section style="border: 4px solid #000; background: #fff; padding: 20px; margin-bottom: 30px; box-shadow: 8px 8px 0px #ff00ff;">
+        <p style="margin: 0; font-size: 16px; font-weight: bold; color: #000;">
+            组件：标准段落。粗野主义拒绝平庸。它不使用阴影，而是使用偏移。它不使用柔和的颜色，而是使用纯粹的 RGB 色值。这种风格让排版拥有了建筑般的重量感。
+        </p>
+    </section>
+
+    <!-- 组件：强调标记 (高光涂鸦感) -->
+    <p style="margin-bottom: 30px; font-size: 18px; line-height: 1.6;">
+        在信息流中，<span style="background: #ffff00; border: 2px solid #000; padding: 0 4px;">绝对的真实</span> 优于虚伪的精致。每一行文字都应该是 <span style="text-decoration: underline; text-decoration-thickness: 5px; text-underline-offset: 4px;">有力的宣言</span>。
+    </p>
+
+
+    <!-- ==============================================
+         三、布局与列表 (无修饰结构)
+    ============================================== -->
+
+    <!-- 组件：分栏布局 (硬撞色模块) -->
+    <section style="display: flex; flex-direction: column; gap: 15px; margin-bottom: 40px;">
+        <div style="background: #fff; border: 4px solid #000; padding: 20px; box-shadow: 6px 6px 0px #000;">
+            <p style="margin: 0; font-size: 14px; font-weight: 900;">[ 01 ] 核心原则</p>
+            <p style="margin: 10px 0 0 0; font-size: 13px;">拒绝渐变。拒绝圆角。拒绝隐喻。</p>
+        </div>
+        <div style="background: #000; color: #fff; border: 4px solid #000; padding: 20px; box-shadow: 6px 6px 0px #00ff00;">
+            <p style="margin: 0; font-size: 14px; font-weight: 900;">[ 02 ] 视觉逻辑</p>
+            <p style="margin: 10px 0 0 0; font-size: 13px;">通过极端的对比度来建立阅读优先级。</p>
+        </div>
+    </section>
+
+    <!-- 组件：无序列表 (加粗箭头) -->
+    <section style="margin-bottom: 40px;">
+        <div style="display: flex; align-items: center; margin-bottom: 15px;">
+            <div style="width: 25px; height: 25px; background: #000; color: #fff; text-align: center; line-height: 25px; font-weight: 900; margin-right: 15px;">→</div>
+            <span style="font-size: 16px; font-weight: bold;">使用 Arial Black 或 Impact 字体。</span>
+        </div>
+        <div style="display: flex; align-items: center; margin-bottom: 15px;">
+            <div style="width: 25px; height: 25px; background: #000; color: #fff; text-align: center; line-height: 25px; font-weight: 900; margin-right: 15px;">→</div>
+            <span style="font-size: 16px; font-weight: bold;">边框宽度设定在 4px 以上。</span>
+        </div>
+    </section>
+
+
+    <!-- ==============================================
+         四、多媒体展示
+    ============================================== -->
+
+    <!-- 组件：图片 (切割感重影框) -->
+    <section style="margin-bottom: 50px; position: relative; padding: 10px;">
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: -1; transform: translate(15px, 15px);"></div>
+        <div style="border: 5px solid #000; background: #fff; line-height: 0;">
+            <img src="https://images.unsplash.com/photo-1549490349-8643362247b5?auto=format&fit=crop&w=800&q=80" style="width: 100% !important; height: auto !important; display: block; filter: saturate(1.5) contrast(1.2);" alt="粗野建筑图">
+        </div>
+        <div style="background: #000; color: #fff; font-size: 12px; padding: 8px; font-weight: 900; letter-spacing: 2px;">
+            ARCHITECTURE_DECONSTRUCTION // 001
+        </div>
+    </section>
+
+
+    <!-- ==============================================
+         五、页脚 (工业印记)
+    ============================================== -->
+
+    <!-- 组件：分隔线 (超粗实线) -->
+    <div style="height: 10px; background: #000; margin: 50px 0;"></div>
+
+    <!-- 组件：签名 -->
+    <section style="text-align: left;">
+        <p style="margin: 0; font-size: 40px; font-weight: 900; letter-spacing: -2px; line-height: 0.8;">BRUTAL</p>
+        <p style="margin: 0; font-size: 12px; font-weight: bold; background: #ff00ff; display: inline-block; padding: 2px 5px;">EST. 2026 / NO RULES</p>
+    </section>
+
+</section>
+
+</body>
+</html>

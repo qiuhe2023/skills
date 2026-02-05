@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="margin: 0; padding: 0; background-color: #f0f2f5;">
+
+<!-- 全局容器：浅色纯净背景 -->
+<section style="max-width: 100%; box-sizing: border-box; font-family: 'PingFang SC', 'Helvetica Neue', sans-serif; color: #334155; line-height: 1.8; padding: 25px 15px; background-color: #ffffff; overflow: hidden;">
+
+    <!-- ==============================================
+         一、文本样式类
+    ============================================== -->
+    
+    <!-- 组件：H2 二级标题 (弥散底色感) -->
+    <section style="margin-top: 30px; margin-bottom: 25px; text-align: left;">
+        <div style="display: inline-block; position: relative; padding: 5px 15px;">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #a5b4fc 0%, #f9a8d4 50%, #818cf8 100%); filter: blur(15px); opacity: 0.4; z-index: 1;"></div>
+            <h2 style="position: relative; z-index: 2; font-size: 22px; font-weight: bold; color: #1e1b4b; margin: 0; letter-spacing: 1px;">光影弥散标题 H2</h2>
+        </div>
+    </section>
+
+    <!-- 组件：H3 三级标题 (极简渐变点) -->
+    <section style="margin-top: 25px; margin-bottom: 15px; display: flex; align-items: center;">
+        <div style="width: 12px; height: 12px; background: linear-gradient(to right, #6366f1, #ec4899); border-radius: 50%; margin-right: 10px; box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);"></div>
+        <h3 style="font-size: 17px; font-weight: 600; color: #475569; margin: 0;">流光细节 H3</h3>
+    </section>
+
+    <!-- 组件：标准段落 P -->
+    <p style="margin: 0 0 20px 0; text-align: justify; font-size: 15px; color: #64748b; letter-spacing: 0.03em;">
+        组件：标准段落。弥散渐变的核心在于色彩的“无边界感”。它打破了传统渐变的线性束缚，呈现出一种如云雾般流动的感官体验。
+    </p>
+
+    <!-- 组件：强调文本 (光晕包裹) -->
+    <p style="margin: 0 0 20px 0;">
+        在这个场景中，我们使用了 <strong style="color: #6366f1; text-shadow: 0 0 8px rgba(99, 102, 241, 0.3);">极光蓝强调</strong> 以及 <span style="background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%); border: 1px solid #e2e8f0; padding: 2px 8px; border-radius: 20px; color: #ec4899; font-weight: bold;">晨曦粉标记</span>。
+    </p>
+
+    <!-- 组件：引用文本 (毛玻璃感卡片) -->
+    <section style="margin: 30px 0; padding: 25px; background: rgba(255, 255, 255, 0.6); border: 1px solid rgba(255, 255, 255, 0.8); border-radius: 24px; box-shadow: 0 10px 30px rgba(99, 102, 241, 0.08); position: relative;">
+        <!-- 装饰背景弥散球 -->
+        <div style="position: absolute; top: -10px; right: -10px; width: 60px; height: 60px; background: #f9a8d4; filter: blur(25px); opacity: 0.3; z-index: -1;"></div>
+        <p style="margin: 0; font-size: 15px; color: #475569; line-height: 1.8; font-style: italic;">
+            “组件：引用。让色彩像水彩一样在屏幕上洇开，捕捉那些模糊而温柔的瞬间。”
+        </p>
+    </section>
+
+
+    <!-- ==============================================
+         二、布局与分隔类
+    ============================================== -->
+
+    <!-- 组件：分隔线 (超细渐变线) -->
+    <section style="margin: 40px auto; width: 80%; height: 1px; background: linear-gradient(90deg, transparent, #cbd5e1, transparent);"></section>
+
+    <!-- 组件：分栏布局 (渐变边界卡片) -->
+    <section style="display: flex; gap: 15px; margin-bottom: 30px;">
+        <div style="flex: 1; background: linear-gradient(135deg, #eef2ff 0%, #f5f3ff 100%); padding: 20px; border-radius: 20px; border: 1px solid #e0e7ff; text-align: center;">
+            <p style="margin: 0; font-size: 13px; font-weight: bold; color: #4f46e5;">DESIGN</p>
+            <p style="margin: 5px 0 0 0; font-size: 11px; color: #94a3b8;">左侧色彩模块</p>
+        </div>
+        <div style="flex: 1; background: linear-gradient(135deg, #fdf2f8 0%, #fff1f2 100%); padding: 20px; border-radius: 20px; border: 1px solid #fce7f3; text-align: center;">
+            <p style="margin: 0; font-size: 13px; font-weight: bold; color: #db2777;">FUTURE</p>
+            <p style="margin: 5px 0 0 0; font-size: 11px; color: #94a3b8;">右侧色彩模块</p>
+        </div>
+    </section>
+
+    <!-- 组件：表格（通用风格） -->
+    <section style="margin: 30px 0;">
+        <div style="font-size: 13px; color: #666; margin-bottom: 10px; font-weight: bold;">组件：数据表格</div>
+
+        <!-- 表格容器 -->
+        <div style="border: 1px solid #ddd; overflow: hidden; border-radius: 4px;">
+
+            <!-- 表头 -->
+            <div style="display: flex; background-color: #f5f5f5; border-bottom: 1px solid #ddd;">
+                <div style="flex: 1; padding: 12px 15px; font-size: 14px; font-weight: bold; color: #333; border-right: 1px solid #ddd;">项目</div>
+                <div style="flex: 1; padding: 12px 15px; font-size: 14px; font-weight: bold; color: #333; border-right: 1px solid #ddd;">数值</div>
+                <div style="flex: 1; padding: 12px 15px; font-size: 14px; font-weight: bold; color: #333;">状态</div>
+            </div>
+
+            <!-- 表格行 -->
+            <div style="display: flex; border-bottom: 1px solid #eee;">
+                <div style="flex: 1; padding: 10px 15px; font-size: 14px; color: #333; border-right: 1px solid #eee;">数据项A</div>
+                <div style="flex: 1; padding: 10px 15px; font-size: 14px; color: #333; border-right: 1px solid #eee;">85%</div>
+                <div style="flex: 1; padding: 10px 15px; font-size: 14px; color: #0a0;">良好</div>
+            </div>
+
+            <!-- 表格行 -->
+            <div style="display: flex; border-bottom: 1px solid #eee;">
+                <div style="flex: 1; padding: 10px 15px; font-size: 14px; color: #333; border-right: 1px solid #eee;">数据项B</div>
+                <div style="flex: 1; padding: 10px 15px; font-size: 14px; color: #333; border-right: 1px solid #eee;">62%</div>
+                <div style="flex: 1; padding: 10px 15px; font-size: 14px; color: #fa0;">一般</div>
+            </div>
+
+            <!-- 表格行 -->
+            <div style="display: flex;">
+                <div style="flex: 1; padding: 10px 15px; font-size: 14px; color: #333; border-right: 1px solid #eee;">数据项C</div>
+                <div style="flex: 1; padding: 10px 15px; font-size: 14px; color: #333; border-right: 1px solid #eee;">95%</div>
+                <div style="flex: 1; padding: 10px 15px; font-size: 14px; color: #0a0;">优秀</div>
+            </div>
+        </div>
+
+        <div style="font-size: 12px; color: #999; margin-top: 8px; text-align: right;">数据表格组件，支持多列展示</div>
+    </section>
+
+
+
+    <!-- ==============================================
+         三、多媒体类
+    ============================================== -->
+
+    <!-- 组件：图片 (软性投影 + 渐变边框) -->
+    <section style="margin-bottom: 35px; text-align: center; position: relative;">
+        <div style="display: inline-block; padding: 6px; background: linear-gradient(135deg, #818cf8, #f0abfc, #fbbf24); border-radius: 30px;">
+            <div style="border-radius: 24px; overflow: hidden; background: #fff; line-height: 0;">
+                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80" style="display: block; width: 100% !important; height: auto !important; opacity: 0.95;" alt="弥散风背景">
+            </div>
+        </div>
+        <p style="margin: 15px 0 0 0; font-size: 12px; color: #94a3b8; letter-spacing: 2px;">MESH_GRADIENT_VISUAL.JPG</p>
+    </section>
+
+
+    <!-- ==============================================
+         四、列表类
+    ============================================== -->
+
+    <!-- 组件：无序列表 (渐变圆点) -->
+    <section style="margin-bottom: 30px;">
+        <div style="display: flex; align-items: center; margin-bottom: 15px; padding: 10px; background: #f8fafc; border-radius: 12px;">
+            <div style="width: 8px; height: 8px; background: #6366f1; border-radius: 50%; margin-right: 15px; box-shadow: 0 0 10px #6366f1;"></div>
+            <span style="font-size: 14px; color: #475569;">低饱和度的色彩过渡</span>
+        </div>
+        <div style="display: flex; align-items: center; margin-bottom: 15px; padding: 10px; background: #f8fafc; border-radius: 12px;">
+            <div style="width: 8px; height: 8px; background: #ec4899; border-radius: 50%; margin-right: 15px; box-shadow: 0 0 10px #ec4899;"></div>
+            <span style="font-size: 14px; color: #475569;">高模糊度的层叠效果</span>
+        </div>
+    </section>
+
+
+    <!-- ==============================================
+         五、辅助美化类
+    ============================================== -->
+
+    <!-- 组件：重点色块容器 (全宽渐变) -->
+    <section style="margin: 30px -15px; padding: 40px 20px; background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%); color: #ffffff; text-align: center; position: relative;">
+        <!-- 叠加噪点感 (模拟) -->
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.1; background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png'); pointer-events: none;"></div>
+        <h4 style="margin: 0 0 10px 0; font-size: 18px; font-weight: bold; position: relative;">PRO TIP</h4>
+        <p style="margin: 0; font-size: 14px; opacity: 0.9; position: relative; line-height: 1.6;">弥散渐变非常适合作为背景，用来衬托极简的白色文字或毛玻璃卡片。</p>
+    </section>
+
+    <!-- 组件：对齐样式 (居中尾声) -->
+    <section style="text-align: center; margin-top: 50px;">
+        <div style="display: inline-block; width: 30px; height: 2px; background: linear-gradient(to right, #6366f1, #ec4899); border-radius: 2px; margin-bottom: 10px;"></div>
+        <p style="margin: 0; font-size: 12px; color: #cbd5e1; font-weight: bold; letter-spacing: 5px; text-transform: uppercase;">Aether Aesthetic</p>
+    </section>
+
+</section>
+</body>
+</html>

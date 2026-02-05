@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glassmorphism Layout - White Version</title>
+</head>
+<body style="margin: 0; padding: 0; background-color: #ffffff; min-height: 100vh; font-family: 'PingFang SC', 'Helvetica Neue', sans-serif;">
+
+<!-- 全局背景装饰圆（在白色背景下提供色彩参考，使模糊感可见） -->
+<div style="position: fixed; top: 15%; left: 5%; width: 250px; height: 250px; background: #e0e7ff; border-radius: 50%; filter: blur(60px); opacity: 0.8; z-index: 0;"></div>
+<div style="position: fixed; bottom: 20%; right: 5%; width: 300px; height: 300px; background: #fdf2f8; border-radius: 50%; filter: blur(70px); opacity: 0.9; z-index: 0;"></div>
+
+<!-- 主内容容器 -->
+<section style="position: relative; max-width: 600px; margin: 0 auto; box-sizing: border-box; color: #1e293b; line-height: 1.8; padding: 40px 20px; z-index: 1;">
+
+    <!-- ==============================================
+         一、标题样式
+    ============================================== -->
+    
+    <!-- 组件：H2 二级标题 (更深邃的玻璃感) -->
+    <section style="margin-bottom: 30px;">
+        <div style="background: rgba(255, 255, 255, 0.4); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.6); padding: 10px 25px; border-radius: 18px; display: inline-block; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04), inset 0 0 10px rgba(255, 255, 255, 0.5);">
+            <h2 style="font-size: 22px; font-weight: 600; margin: 0; letter-spacing: 2px; color: #334155;">玻璃拟态标题 H2</h2>
+        </div>
+    </section>
+
+    <!-- 组件：H3 三级标题 (深色线条感) -->
+    <section style="margin-bottom: 15px; border-left: 4px solid #94a3b8; padding-left: 15px;">
+        <h3 style="font-size: 18px; font-weight: 500; margin: 0; color: #475569;">透射质感 H3</h3>
+    </section>
+
+
+    <!-- ==============================================
+         二、文本与内容卡片
+    ============================================== -->
+
+    <!-- 组件：标准段落 P (白色背景适配) -->
+    <p style="margin: 0 0 25px 0; font-size: 15px; color: #64748b;">
+        组件：标准段落。在白色背景下，我们调高了卡片的投影（Shadow）和边框对比度。虽然背景变亮了，但通过模糊层对底层色彩圆形的捕捉，依然能体现出玻璃的物理属性。
+    </p>
+
+    <!-- 组件：磨砂玻璃引用卡片 (白色增强版) -->
+    <section style="margin: 30px 0; padding: 25px; background: rgba(255, 255, 255, 0.5); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.8); border-radius: 24px; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05), 0 5px 15px rgba(0, 0, 0, 0.02);">
+        <p style="margin: 0; font-size: 15px; color: #475569; font-style: italic; line-height: 1.8;">
+            “组件：引用。当背景色退去，光影的细微变化成为了主角。这种留白与通透的结合，让信息传递更具呼吸感。”
+        </p>
+    </section>
+
+    <!-- 组件：强调高亮 (淡雅渐变感) -->
+    <p style="margin-bottom: 25px;">
+        在亮色模式下，<span style="background: #f1f5f9; color: #6366f1; padding: 2px 10px; border-radius: 20px; font-weight: bold; font-size: 13px;">核心重点</span> 使用了低饱和度的底色，而 <span style="border-bottom: 2px solid #e2e8f0; padding-bottom: 2px;">辅助观点</span> 依然保持纤细。
+    </p>
+
+
+    <!-- ==============================================
+         三、布局与列表
+    ============================================== -->
+
+    <!-- 组件：分栏布局 (白色玻璃网格) -->
+    <section style="display: flex; gap: 15px; margin-bottom: 30px;">
+        <div style="flex: 1; background: rgba(255, 255, 255, 0.4); border: 1px solid rgba(0, 0, 0, 0.05); padding: 15px; border-radius: 20px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+            <p style="margin: 0; font-size: 13px; font-weight: bold; color: #334155;">01 / 清晰度</p>
+        </div>
+        <div style="flex: 1; background: rgba(255, 255, 255, 0.4); border: 1px solid rgba(0, 0, 0, 0.05); padding: 15px; border-radius: 20px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+            <p style="margin: 0; font-size: 13px; font-weight: bold; color: #334155;">02 / 柔和度</p>
+        </div>
+    </section>
+
+    <!-- 组件：无序列表 (渐变圆点) -->
+    <section style="margin-bottom: 30px;">
+        <div style="display: flex; align-items: center; margin-bottom: 12px;">
+            <div style="width: 8px; height: 8px; background: linear-gradient(135deg, #6366f1, #a855f7); border-radius: 50%; margin-right: 15px;"></div>
+            <span style="font-size: 14px; color: #64748b;">保持 0.4 到 0.6 的背景透明度。</span>
+        </div>
+        <div style="display: flex; align-items: center; margin-bottom: 12px;">
+            <div style="width: 8px; height: 8px; background: linear-gradient(135deg, #6366f1, #a855f7); border-radius: 50%; margin-right: 15px;"></div>
+            <span style="font-size: 14px; color: #64748b;">使用淡灰色或纯白细边框。</span>
+        </div>
+    </section>
+
+
+    <!-- ==============================================
+         四、媒体展示
+    ============================================== -->
+
+    <!-- 组件：图片 (高光玻璃相框) -->
+    <section style="margin-bottom: 40px; text-align: center;">
+        <div style="background: rgba(255, 255, 255, 0.4); padding: 12px; border: 1px solid rgba(0, 0, 0, 0.05); border-radius: 30px; display: inline-block; width: 100%; box-sizing: border-box; box-shadow: 0 20px 40px rgba(0,0,0,0.05);">
+            <div style="border-radius: 20px; overflow: hidden; line-height: 0;">
+                <img src="https://images.unsplash.com/photo-1614850523296-d8c1af93d400?auto=format&fit=crop&w=800&q=80" style="width: 100% !important; height: auto !important;" alt="玻璃风格图">
+            </div>
+            <p style="margin: 15px 0 5px 0; font-size: 12px; color: #94a3b8; letter-spacing: 2px;">LIGHT_REFRACTION.IMG</p>
+        </div>
+    </section>
+
+
+    <!-- ==============================================
+         五、页脚与装饰
+    ============================================== -->
+
+    <!-- 组件：分隔线 (极细浅色线) -->
+    <div style="height: 1px; background: #f1f5f9; margin: 40px 0;"></div>
+
+    <!-- 组件：居中签名 -->
+    <section style="text-align: center;">
+        <p style="margin: 0; font-size: 12px; font-weight: 400; color: #cbd5e1; letter-spacing: 4px; text-transform: uppercase;">Minimalist Glass UI</p>
+    </section>
+
+</section>
+
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="margin: 0; padding: 0; background-color: #f0f0f0;">
+
+<!-- 全局背景容器：模拟老式显示器边框 -->
+<section style="max-width: 100%; box-sizing: border-box; font-family: 'Courier New', Courier, monospace, 'PingFang SC', sans-serif; color: #000; line-height: 1.6; padding: 25px 15px; background-color: #fff; border: 4px solid #000;">
+
+    <!-- ==============================================
+         一、文本样式类（基础核心）
+    ============================================== -->
+    
+    <!-- 组件：H2 二级标题 (游戏标题栏风格) -->
+    <section style="margin-top: 30px; margin-bottom: 25px;">
+        <div style="background: #000; display: inline-block; padding: 8px 16px; border: 2px solid #fff; box-shadow: 4px 4px 0px #000;">
+            <h2 style="font-size: 18px; font-weight: bold; color: #fff; margin: 0; letter-spacing: 2px; text-transform: uppercase;">
+                STG_01: 开始游戏 H2
+            </h2>
+        </div>
+    </section>
+
+    <!-- 组件：H3 三级标题 (XP系统窗口栏风格) -->
+    <section style="margin-top: 25px; margin-bottom: 15px; border: 2px solid #000; background: #000080;">
+        <div style="padding: 4px 10px; color: #fff; font-size: 14px; font-weight: bold; display: flex; justify-content: space-between;">
+            <span>INFO_BOX.H3</span>
+            <span>[X]</span>
+        </div>
+    </section>
+
+    <!-- 组件：标准段落 P (点阵字体排版) -->
+    <p style="margin: 0 0 20px 0; text-align: justify; font-size: 15px; color: #000; background: #fff; border-left: 6px solid #ccc; padding-left: 10px;">
+        组件：标准段落。复古像素风不仅仅是情怀，它代表了一种严谨的数字美学。在这里，每一个字符都是由像素格构建的奇迹。
+    </p>
+
+    <!-- 组件：强调文本 (受损文字感) -->
+    <p style="margin: 0 0 20px 0;">
+        在这个关卡中，我们需要 <strong style="background: #ff0000; color: #fff; padding: 0 4px; border: 2px solid #000;">极高危险度强调</strong> 以及 <span style="background: #00ff00; color: #000; border: 2px solid #000; font-weight: bold; padding: 0 4px;">获得加成标记</span>。
+    </p>
+
+    <!-- 组件：引用文本 (RPG对话框风格) -->
+    <section style="margin: 30px 0; padding: 15px; background-color: #000; border: 4px solid #fff; outline: 4px solid #000; color: #fff; position: relative;">
+        <p style="margin: 0; font-size: 14px; line-height: 1.8;">
+            “勇者啊，真正的排版大师从不畏惧复杂的 HTML，他们只在意像素是否对齐。”
+            <span style="display: inline-block; width: 10px; height: 10px; background: #fff; margin-left: 5px; animation: blink 0.8s infinite;"></span>
+        </p>
+    </section>
+
+    <!-- 组件：超链接 (像素光标感) -->
+    <p style="margin: 0 0 20px 0;">
+        <a href="#" style="color: #0000ee; text-decoration: none; font-weight: bold; border-bottom: 2px dashed #000;">☛ [ 点击加载下一关 ]</a>
+    </p>
+
+
+    <!-- ==============================================
+         二、布局与分隔类（优化结构）
+    ============================================== -->
+
+    <!-- 组件：分隔线 (生命值/能量条风格) -->
+    <section style="margin: 40px 0; display: flex; align-items: center; gap: 10px;">
+        <span style="font-size: 12px; font-weight: bold;">HP</span>
+        <div style="flex: 1; height: 16px; border: 2px solid #000; background: #eee; position: relative;">
+            <div style="width: 70%; height: 100%; background: #ff0000; border-right: 2px solid #000;"></div>
+        </div>
+    </section>
+
+    <!-- 组件：表格（通用风格） -->
+    <section style="margin: 30px 0;">
+        <div style="font-size: 13px; color: #666; margin-bottom: 10px; font-weight: bold;">组件：数据表格</div>
+
+        <!-- 表格容器 -->
+        <div style="border: 1px solid #ddd; overflow: hidden; border-radius: 4px;">
+
+            <!-- 表头 -->
+            <div style="display: flex; background-color: #f5f5f5; border-bottom: 1px solid #ddd;">
+                <div style="flex: 1; padding: 12px 15px; font-size: 14px; font-weight: bold; color: #333; border-right: 1px solid #ddd;">项目</div>
+                <div style="flex: 1; padding: 12px 15px; font-size: 14px; font-weight: bold; color: #333; border-right: 1px solid #ddd;">数值</div>
+                <div style="flex: 1; padding: 12px 15px; font-size: 14px; font-weight: bold; color: #333;">状态</div>
+            </div>
+
+            <!-- 表格行 -->
+            <div style="display: flex; border-bottom: 1px solid #eee;">
+                <div style="flex: 1; padding: 10px 15px; font-size: 14px; color: #333; border-right: 1px solid #eee;">数据项A</div>
+                <div style="flex: 1; padding: 10px 15px; font-size: 14px; color: #333; border-right: 1px solid #eee;">85%</div>
+                <div style="flex: 1; padding: 10px 15px; font-size: 14px; color: #0a0;">良好</div>
+            </div>
+
+            <!-- 表格行 -->
+            <div style="display: flex; border-bottom: 1px solid #eee;">
+                <div style="flex: 1; padding: 10px 15px; font-size: 14px; color: #333; border-right: 1px solid #eee;">数据项B</div>
+                <div style="flex: 1; padding: 10px 15px; font-size: 14px; color: #333; border-right: 1px solid #eee;">62%</div>
+                <div style="flex: 1; padding: 10px 15px; font-size: 14px; color: #fa0;">一般</div>
+            </div>
+
+            <!-- 表格行 -->
+            <div style="display: flex;">
+                <div style="flex: 1; padding: 10px 15px; font-size: 14px; color: #333; border-right: 1px solid #eee;">数据项C</div>
+                <div style="flex: 1; padding: 10px 15px; font-size: 14px; color: #333; border-right: 1px solid #eee;">95%</div>
+                <div style="flex: 1; padding: 10px 15px; font-size: 14px; color: #0a0;">优秀</div>
+            </div>
+        </div>
+
+        <div style="font-size: 12px; color: #999; margin-top: 8px; text-align: right;">数据表格组件，支持多列展示</div>
+    </section>
+
+
+    <!-- 组件：分栏布局 (对战选择风格) -->
+    <section style="display: flex; gap: 10px; margin-bottom: 30px;">
+        <div style="flex: 1; border: 4px solid #000; padding: 10px; text-align: center; box-shadow: 4px 4px 0px #888;">
+            <p style="margin: 0; font-size: 12px; font-weight: bold;">[ 攻击 ]</p>
+        </div>
+        <div style="flex: 1; border: 4px solid #000; background: #000; color: #fff; padding: 10px; text-align: center; box-shadow: 4px 4px 0px #888;">
+            <p style="margin: 0; font-size: 12px; font-weight: bold;">[ 逃跑 ]</p>
+        </div>
+    </section>
+
+
+    <!-- ==============================================
+         三、多媒体类（丰富内容）
+    ============================================== -->
+
+    <!-- 组件：图片标签 (显示器干扰纹风格) -->
+    <section style="margin-bottom: 30px; border: 4px solid #000; position: relative; background: #000;">
+        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80" style="display: block; width: 100% !important; height: auto !important; opacity: 0.9; filter: contrast(120%) grayscale(20%);" alt="像素风图">
+        <!-- 模拟扫描线效果 -->
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06)); background-size: 100% 4px, 3px 100%; pointer-events: none;"></div>
+        <div style="background: #000; color: #0f0; font-size: 10px; padding: 4px; text-align: center; font-family: monospace;">VIDEO_SIGNAL: OK [640x480]</div>
+    </section>
+
+
+    <!-- ==============================================
+         四、列表类（结构化内容）
+    ============================================== -->
+
+    <!-- 组件：无序列表 (像素金币标识) -->
+    <section style="margin-bottom: 25px;">
+        <div style="display: flex; align-items: center; margin-bottom: 12px;">
+            <div style="width: 12px; height: 12px; background: #ffd700; border: 2px solid #000; margin-right: 12px; flex-shrink: 0;"></div>
+            <span style="font-size: 15px;">收集道具：像素排版指南</span>
+        </div>
+        <div style="display: flex; align-items: center; margin-bottom: 12px;">
+            <div style="width: 12px; height: 12px; background: #ffd700; border: 2px solid #000; margin-right: 12px; flex-shrink: 0;"></div>
+            <span style="font-size: 15px;">解锁成就：全代码手写者</span>
+        </div>
+    </section>
+
+    <!-- 组件：有序列表 (关卡编号风格) -->
+    <section style="margin-bottom: 25px;">
+        <div style="display: flex; align-items: center; margin-bottom: 15px;">
+            <span style="background: #000; color: #fff; font-weight: bold; padding: 2px 8px; margin-right: 12px; border: 2px solid #fff; outline: 2px solid #000;">01</span>
+            <span style="font-weight: bold;">LVL_1: 基础语法入门</span>
+        </div>
+        <div style="display: flex; align-items: center; margin-bottom: 15px;">
+            <span style="background: #000; color: #fff; font-weight: bold; padding: 2px 8px; margin-right: 12px; border: 2px solid #fff; outline: 2px solid #000;">02</span>
+            <span style="font-weight: bold;">LVL_2: 样式冲突调试</span>
+        </div>
+    </section>
+
+
+    <!-- ==============================================
+         五、辅助美化类
+    ============================================== -->
+
+    <!-- 组件：背景色块容器 (警告弹窗风格) -->
+    <section style="background-color: #fff; border: 4px solid #ff0000; padding: 20px; margin: 30px 0; box-shadow: 8px 8px 0px #ffcccc;">
+        <h4 style="margin: 0 0 10px 0; font-size: 16px; color: #ff0000; font-weight: bold; text-align: center;">! WARNING !</h4>
+        <p style="margin: 0; font-size: 13px; text-align: center;">此区域内容包含极高密度的信息，请谨慎阅读。</p>
+    </section>
+
+    <!-- 组件：文本对齐 (居中/GAME OVER风格) -->
+    <section style="text-align: center; margin: 50px 0 30px 0;">
+        <p style="margin: 0; font-size: 24px; font-weight: bold; color: #ccc; letter-spacing: 5px;">- FINISH -</p>
+        <p style="margin: 5px 0 0 0; font-size: 12px; color: #999;">PRESS ANY KEY TO CONTINUE</p>
+    </section>
+
+    <!-- 组件：对齐样式 (右对齐/存档点) -->
+    <section style="text-align: right; margin-top: 40px;">
+        <p style="margin: 0; font-size: 11px; color: #666; font-style: italic;">[ SAVE POINT: 2026.02.05 ]</p>
+    </section>
+
+</section>
+
+<style>
+    @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
+    }
+</style>
+
+</body>
+</html>

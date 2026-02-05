@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        :root {
+            --bg-color: #0b0c10;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --text-main: #f7f8f8;
+            --text-dim: #8a8f98;
+            --accent-color: #5e6ad2;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            position: relative;
+        }
+        /* 背景漫反射光晕 */
+        .glow {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1000px;
+            height: 400px;
+            background: radial-gradient(circle at 50% 0%, rgba(94, 106, 210, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        h2 {
+            font-size: 28px;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            margin: 0 0 20px 0;
+            background: linear-gradient(to bottom, #fff 0%, #8a8f98 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        h3 {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-main);
+            margin: 40px 0 16px 0;
+            display: flex;
+            align-items: center;
+        }
+        h3::before {
+            content: "";
+            width: 12px;
+            height: 12px;
+            background: var(--accent-color);
+            border-radius: 3px;
+            margin-right: 12px;
+            box-shadow: 0 0 10px rgba(94, 106, 210, 0.5);
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-dim);
+            margin-bottom: 24px;
+        }
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 32px;
+            transition: border-color 0.3s ease;
+        }
+        .card:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 10px;
+            background: rgba(94, 106, 210, 0.1);
+            border: 1px solid rgba(94, 106, 210, 0.2);
+            border-radius: 6px;
+            color: var(--accent-color);
+            font-size: 12px;
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 32px 0;
+        }
+        .feature-item {
+            border-top: 1px solid var(--border-color);
+            padding-top: 16px;
+        }
+        .feature-item .title {
+            font-size: 14px;
+            color: var(--text-main);
+            margin-bottom: 4px;
+        }
+        .feature-item .desc {
+            font-size: 13px;
+            color: var(--text-dim);
+        }
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, var(--border-color), transparent);
+            margin: 40px 0;
+        }
+        .image-container {
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            background: #000;
+            position: relative;
+        }
+        .image-container img {
+            width: 100%;
+            height: auto;
+            opacity: 0.8;
+            display: block;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 80px;
+            font-size: 12px;
+            color: var(--text-dim);
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="glow"></div>
+
+<div class="container">
+    <!-- Header Section -->
+    <header>
+        <div class="tag">Linear Release v2.0</div>
+        <h2>构建新一代工作流 H2</h2>
+        <p>
+            Linear 风格的精髓在于“克制”。它不通过鲜艳的色彩吸引注意力，而是通过精准的对比和极致的细节，为创作者提供一个沉浸式的思考环境。
+        </p>
+    </header>
+
+    <div class="divider"></div>
+
+    <!-- Feature Card -->
+    <section class="card">
+        <h3 style="margin-top:0">高效协作组件 H3</h3>
+        <p style="font-size: 14px;">
+            卡片采用了微妙的 1px 边框和半透明背景。在深色模式下，这种处理方式能有效区分层级，同时避免视觉上的厚重感。
+        </p>
+        <div class="feature-grid">
+            <div class="feature-item">
+                <div class="title">原子级组件</div>
+                <div class="desc">每一个像素都经过对齐校准。</div>
+            </div>
+            <div class="feature-item">
+                <div class="title">响应式栅格</div>
+                <div class="desc">在各种屏幕上保持完美比例。</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section>
+        <h3>排版细节与质感</h3>
+        <p>
+            注意标题的文字渐变效果。我们使用了从纯白到灰色的垂直渐变，这模拟了光线从上方照在文字上的自然物理效果，使标题看起来更有深度。
+        </p>
+    </section>
+
+    <!-- Image Display -->
+    <section style="margin: 40px 0;">
+        <div class="image-container">
+            <img src="https://images.unsplash.com/photo-1614850523296-d8c1af93d400?auto=format&fit=crop&w=800&q=80" alt="Linear Style Visual">
+        </div>
+        <p style="font-size: 12px; margin-top: 12px; text-align: center;">图 1.1 / 科技感界面的光影平衡</p>
+    </section>
+
+    <!-- Action Section -->
+    <section style="text-align: center; padding: 40px 0;">
+        <p style="color: var(--text-main); font-weight: 500;">准备好开始了吗？</p>
+        <div style="display: inline-block; background: var(--text-main); color: var(--bg-color); padding: 10px 24px; border-radius: 8px; font-weight: 600; font-size: 14px; cursor: pointer;">
+            立即集成模块
+        </div>
+    </section>
+
+    <footer class="footer">
+        POWERED BY LINEAR DESIGN SYSTEM
+    </footer>
+</div>
+
+</body>
+</html>
