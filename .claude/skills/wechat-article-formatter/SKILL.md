@@ -1,6 +1,6 @@
 ---
 name: wechat-article-formatter
-description: "Comprehensive WeChat public account article formatting skill for creating professionally styled articles with matching image prompts. Use when Claude needs to format articles for WeChat public accounts, including: (1) Applying styling templates to article content, (2) Generating HTML files compatible with WeChat editor, (3) Creating markdown files with article metadata and image generation prompts, (4) Recommending suitable styling based on article content, (5) Processing article content to extract titles and summaries for prompt generation, (6) Generating AI images for article illustrations with user-confirmed prompts."
+description: "Comprehensive WeChat public account article formatting skill for creating professionally styled articles with matching image prompts. Use when Claude needs to format articles for WeChat public accounts, including: (1) Applying styling templates to article content, (2) Generating HTML files compatible with WeChat editor, (3) Creating markdown files with article metadata and image generation prompts, (4) Recommending suitable styling based on article content, (5) Generating AI images for article illustrations with user-confirmed prompts."
 ---
 
 # 微信公众号排版技能
@@ -28,58 +28,46 @@ description: "Comprehensive WeChat public account article formatting skill for c
 - 确保生成的HTML符合微信公众号编辑器限制
 - 生成以文章标题命名的HTML文件
 
-### 4. 元数据文件生成
-- 创建Markdown文件包含：
-  - 文章标题和简介
-  - 封面图生成prompt（基于文章内容）
-  - 文中配图生成prompts
-- 文件命名与HTML文件对应
+### 4. 图片生成
+- 根据文章内容生成封面图和文中配图的prompts
+- 调用AI生成图片
+- 在Markdown文件中引用生成的图片
+- 将图片插入到HTML排版中
 
 ## 快速开始
 
 ### 基本使用流程
 1. 提供文章内容给Claude
-2. Claude使用本技能处理内容
-3. 选择或接受推荐的设计风格
-4. 接收生成的HTML文件和Markdown文件
+2. Claude分析文章内容并推荐风格
+3. 用户确认风格选择
+4. Claude生成图片prompts并调用脚本生成图片
+5. Claude创建Markdown和HTML文件，将图片插入HTML
 
 ### 示例用户请求
 - "帮我将这篇公众号文章排版成HTML"
 - "为这篇文章生成微信公众号排版，使用现代风格"
-- "创建这篇文章的微信公众号版本，包含配图prompt"
+- "创建这篇文章的微信公众号版本，包含配图和图片"
 
 ## 可用资源
 
 ### 脚本工具 (`scripts/`)
 
-#### `process_article.py`
-文章内容处理脚本，提取标题、摘要，生成配图prompt。
-
-**使用方法：**
-```bash
-python scripts/process_article.py <文章文件>
-# 或
-cat 文章.txt | python scripts/process_article.py
-```
-
-**输出：**
-- 文章标题
-- 文章摘要（约200字）
-- 封面图生成prompt
-- 3个文中配图prompts
-
 #### `generate_image.py`
 AI图片生成脚本，调用豆包大模型生成文章配图。支持prompt优化和用户审核。
 
+**保留理由：**
+- 图片生成涉及API调用、图片下载、文件保存等复杂操作
+- 大模型无法直接执行这些操作，需要脚本来处理
+
 **使用方法：**
 ```bash
-# 生成封面图（900x383，适合公众号封面）
+# 生成封面图（1024x1024，适合公众号封面）
 python scripts/generate_image.py -p "科技感的公众号封面图" --size cover
 
-# 生成文中配图（900x600，横向）
+# 生成文中配图（1024x1024，横向）
 python scripts/generate_image.py -p "未来城市" --size content
 
-# 生成横幅图片（900x300）
+# 生成横幅图片（1024x1024）
 python scripts/generate_image.py -p "横幅标题" --size banner
 
 # 自定义尺寸
@@ -98,58 +86,13 @@ python scripts/generate_image.py -p "简约商务插图" -O
 - 自动下载并保存图片到本地
 
 **尺寸说明：**
-- `cover` / `封面图`: 900x383（2.35:1），适合公众号封面
-- `content` / `文中配图`: 900x600（3:2），横向，适合文中插图
-- `banner` / `横幅`: 900x300（3:1），横向，适合头图/分割图
-- 默认: 900x600
+- `cover` / `封面图`: 1024x1024，适合公众号封面
+- `content` / `文中配图`: 1024x1024，横向，适合文中插图
+- `banner` / `横幅`: 1024x1024，横向，适合头图/分割图
+- 默认: 1024x1024
 
 **环境变量：**
-- `ARK_API_KEY`: 火山引擎API密钥（需在.env文件中配置）
-
-#### `format_with_images.py`
-微信公众号排版与图片生成整合脚本，完成从文章到最终输出的完整流程。
-
-**使用方法：**
-```bash
-# 基本用法
-python scripts/format_with_images.py -a <文章文件> -s <风格名称> -o <输出目录>
-
-# 示例
-python scripts/format_with_images.py -a article.md -s 极简时尚 -o output
-```
-
-**功能：**
-- 分析文章内容，提取标题和摘要
-- 自动生成封面图和文中配图的prompts
-- 调用AI生成图片（封面图900x383，配图900x600）
-- 创建Markdown文件（包含prompt和生成的图片引用）
-- 根据选择的风格生成HTML文件，并将图片插入HTML模板
-
-**输出文件：**
-- `<标题>.md`: 包含文章元数据、prompts和图片引用的Markdown文件
-- `<标题>.html`: 包含生成图片的微信公众号HTML文件
-- `images/*.png`: 生成的图片文件
-
-**参数说明：**
-- `-a, --article`: 文章文件路径（必需）
-- `-s, --style`: 风格名称（默认: index.html）
-- `-o, --output-dir`: 输出目录（默认: output）
-
-**环境变量：**
-- `ARK_API_KEY`: 火山引擎API密钥（需在.env文件中配置）
-
-#### `style_recommender.py`
-风格推荐脚本，根据文章内容推荐合适的排版风格。
-
-**使用方法：**
-```bash
-python scripts/style_recommender.py <文章文件>
-```
-
-**功能：**
-- 分析文章关键词匹配风格
-- 推荐前3个最合适的风格
-- 显示所有可用风格及其描述
+- `ARK_API_KEY`: 火山引擎API密钥（需在`scripts/.env`文件中配置）
 
 ### 参考文档 (`references/`)
 
@@ -172,7 +115,7 @@ python scripts/style_recommender.py <文章文件>
 
 ### 模板资产 (`assets/templates/`)
 
-包含12种不同设计风格的HTML模板文件：
+包含13种不同设计风格的HTML模板文件：
 
 1. `index.html` - 极简时尚风格
 2. `扁平风格.html` - 扁平化设计风格
@@ -185,7 +128,8 @@ python scripts/style_recommender.py <文章文件>
 9. `新粗野风格.html` - 新粗野风格
 10. `黑白像素.html` - 黑白像素风格
 11. `极客像素风格.html` - 极客像素风格
-12. `科技简约像素.html` - 科技简约像素风格
+12. `科技`像素.html` - 科技简约像素风格
+13. `科技简约像素.html` - 科技简约像素风格
 
 **文件命名：** 中文文件名对应风格名称，在微信编辑器中显示正常。
 
@@ -204,13 +148,13 @@ python scripts/style_recommender.py <文章文件>
 3. 确保在完整的句子处截断
 
 #### 配图prompt生成
-1. 封面图prompt：基于标题和摘要生成，风格为"modern minimalistic"
-2. 文中配图prompts：基于文章前几个关键句子生成，每个prompt描述具体内容
+1. 封面图prompt：基于标题和摘要生成，风格为"modern tech minimalistic"
+2. 文中配图prompts：基于文章关键段落生成，每个prompt描述具体内容
 
 ### 风格推荐逻辑
 
 风格推荐基于关键词匹配：
-- 科技/专业类文章 → 极简时尚、科技简约像素
+- 科技/专业类文章 → 极简时尚、科技简约像素、科技简约像素
 - 设计/创意类文章 → 扁平风格、弥散风格
 - 游戏/娱乐类文章 → 像素风格、复古像素风格
 - 艺术/文化类文章 → 酸性设计、新粗野风格
@@ -221,7 +165,7 @@ python scripts/style_recommender.py <文章文件>
 2. **使用安全字体**：采用微信推荐字体栈
 3. **图片处理**：使用width: 100%确保响应式显示
 4. **避免被过滤**：不使用position: fixed等可能被微信过滤的属性
-4. **避免组件风格缺失** ：如果参考的模板中没有包含某个组件的样式，你可以根据整体的风格样式进行完善，不要直接使用md格式。
+4. **避免组件风格缺失**：如果参考的模板中没有包含某个组件的样式，可以根据整体的风格样式进行完善，不要直接使用md格式。
 
 ### 文件输出规范
 
@@ -233,25 +177,32 @@ python scripts/style_recommender.py <文章文件>
    ## 文章简介
    [摘要内容]
 
-   ## 封面图prompt
+   ## 封面图
+   **Prompt:**
    [生成的prompt]
 
-   ## 文中配图prompts
-   1. [prompt 1]
-   2. [prompt 2]
-   3. [prompt 3]
+   **图片:**
+   ![封面图](../images/xxx.png)
+
+   ## 文中配图
+
+   ### 配图 1
+   **Prompt:**
+   [prompt 1]
+
+   **图片:**
+   ![配图1](../images/xxx.png)
+
+   ... 更多配图
    ```
 
 ## 使用示例
 
-### 示例1：基本排版
-用户提供文章内容 → Claude处理 → 推荐风格 → 用户确认 → 生成HTML+MD文件
+### 示例1：完整排版流程
+用户提供文章 → Claude分析内容 → 推荐风格 → 用户确认 → 生成图片prompts → 调用脚本生成图片 → 创建HTML和MD文件并插入图片
 
 ### 示例2：指定风格
-用户提供文章内容并指定"扁平风格" → Claude使用指定模板 → 生成HTML+MD文件
-
-### 示例3：批量处理
-用户提供多篇文章 → Claude循环处理每篇 → 分别生成对应的文件
+用户提供文章并指定"扁平风格" → Claude使用指定模板 → 生成图片prompts → 调用脚本生成图片 → 创建HTML和MD文件并插入图片
 
 ## 故障排除
 
@@ -266,31 +217,12 @@ python scripts/style_recommender.py <文章文件>
    - 手动选择更合适的风格
    - 调整文章关键词以匹配目标风格
 
-3. **图片prompt质量不高**
-   - 手动优化prompt描述
-   - 基于文章关键内容重新生成
-
-### 脚本错误处理
-
-- 确保Python环境为3.6+
-- 检查文件编码为UTF-8
-- 确认有足够的读写权限
-
-## 扩展与定制
-
-### 添加新风格模板
-1. 在`assets/templates/`目录中添加新的HTML文件
-2. 在`references/style_templates.md`中更新描述
-3. 在`scripts/style_recommender.py`中添加关键词映射
-
-### 修改prompt生成逻辑
-编辑`scripts/process_article.py`中的`generate_image_prompt`和`generate_content_prompts`函数。
-
-### 调整样式参数
-直接修改模板文件中的内联样式属性，保持微信兼容性。
+3. **图片生成失败**
+   - 检查API配置是否正确
+   - 确认`scripts/.env`中ARK_API_KEY已配置
 
 ---
 
-**技能版本：** 1.0
-**最后更新：** 2026-02-05
+**技能版本：** 2.0
+**最后更新：** 2026-02-06
 **兼容性：** 微信公众号编辑器最新规范
