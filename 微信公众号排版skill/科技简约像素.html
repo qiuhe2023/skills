@@ -94,12 +94,66 @@
         </div>
     </section>
 
+    <!-- 组件：极客数据表格 (系统监控风格) -->
+    <section style="margin-bottom: 40px; border: 1px solid #000; padding: 4px; background: #fff;">
+        <div style="border: 1px solid #000; background: #f8f9fa; padding: 20px;">
+            <!-- 表格标题栏 -->
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid #000;">
+                <span style="font-size: 12px; font-weight: bold; color: #000;">📊 SYSTEM_DATA_TABLE</span>
+                <span style="font-size: 10px; color: #666; font-family: monospace;">[ - ] [ □ ] [ X ]</span>
+            </div>
+
+            <!-- 表格主体 -->
+            <table style="width: 100%; border-collapse: collapse; font-size: 12px; font-family: 'Courier New', monospace; color: #000;">
+                <thead>
+                    <tr style="background: #000;">
+                        <th style="border: 1px solid #000; padding: 8px 10px; text-align: left; color: #fff; font-weight: bold;">ID</th>
+                        <th style="border: 1px solid #000; padding: 8px 10px; text-align: left; color: #fff; font-weight: bold;">模块</th>
+                        <th style="border: 1px solid #000; padding: 8px 10px; text-align: left; color: #fff; font-weight: bold;">状态</th>
+                        <th style="border: 1px solid #000; padding: 8px 10px; text-align: left; color: #fff; font-weight: bold;">进程</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="border: 1px solid #000; padding: 8px 10px; background: #fff;">0x01</td>
+                        <td style="border: 1px solid #000; padding: 8px 10px; background: #fff;">PIXEL_RENDER</td>
+                        <td style="border: 1px solid #000; padding: 8px 10px; background: #fff; color: #22c55e; font-weight: bold;">ONLINE</td>
+                        <td style="border: 1px solid #000; padding: 8px 10px; background: #fff;">65%</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #000; padding: 8px 10px; background: #f5f5f5;">0x02</td>
+                        <td style="border: 1px solid #000; padding: 8px 10px; background: #f5f5f5;">GRID_ALIGN</td>
+                        <td style="border: 1px solid #000; padding: 8px 10px; background: #f5f5f5; color: #22c55e; font-weight: bold;">ONLINE</td>
+                        <td style="border: 1px solid #000; padding: 8px 10px; background: #f5f5f5;">100%</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #000; padding: 8px 10px; background: #fff;">0x03</td>
+                        <td style="border: 1px solid #000; padding: 8px 10px; background: #fff;">COLOR_FILTER</td>
+                        <td style="border: 1px solid #000; padding: 8px 10px; background: #fff; color: #eab308; font-weight: bold;">WARNING</td>
+                        <td style="border: 1px solid #000; padding: 8px 10px; background: #fff;">87%</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #000; padding: 8px 10px; background: #f5f5f5;">0x04</td>
+                        <td style="border: 1px solid #000; padding: 8px 10px; background: #f5f5f5;">TERMINAL_UI</td>
+                        <td style="border: 1px solid #000; padding: 8px 10px; background: #f5f5f5; color: #ef4444; font-weight: bold;">ERROR</td>
+                        <td style="border: 1px solid #000; padding: 8px 10px; background: #f5f5f5;">42%</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4" style="border-top: 2px solid #000; padding: 8px 10px; background: #000; color: #fff; font-size: 11px; font-family: monospace; text-align: center;">
+                            <span style="color: #22c55e;">▶</span> SYSTEM_STATUS: 4 MODULES LOADED | ACTIVE: 2/4 | <span style="color: #22c55e;">READY</span>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </section>
+
 
     <!-- ==============================================
-         四、媒体展示
+         三、媒体展示
     ============================================== -->
-
-    <!-- 组件：图片 (硬核工业边框) -->
     <section style="margin-bottom: 40px; position: relative;">
         <!-- 四角装饰点 -->
         <div style="position: absolute; top: -4px; left: -4px; width: 8px; height: 8px; background: #0066ff;"></div>

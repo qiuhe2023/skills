@@ -79,9 +79,49 @@
         </div>
     </section>
 
+<!-- ==============================================
+     四、表格组件
+============================================== -->
+
+<!-- 组件：玻璃拟态表格 -->
+<section style="margin-bottom: 40px;">
+    <div style="background: rgba(255, 255, 255, 0.5); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.8); border-radius: 24px; padding: 25px; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05), 0 5px 15px rgba(0, 0, 0, 0.02);">
+        <table style="width: 100%; border-collapse: separate; border-spacing: 0; font-size: 14px; color: #475569;">
+            <thead>
+                <tr>
+                    <th style="background: rgba(255, 255, 255, 0.6); padding: 16px 20px; text-align: left; font-weight: 600; border-bottom: 1px solid rgba(0, 0, 0, 0.08); border-radius: 12px 12px 0 0;">特性</th>
+                    <th style="background: rgba(255, 255, 255, 0.6); padding: 16px 20px; text-align: left; font-weight: 600; border-bottom: 1px solid rgba(0, 0, 0, 0.08);">描述</th>
+                    <th style="background: rgba(255, 255, 255, 0.6); padding: 16px 20px; text-align: left; font-weight: 600; border-bottom: 1px solid rgba(0, 0, 0, 0.08); border-radius: 0 12px 0 0;">示例值</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="border-bottom: 1px solid rgba(0, 0, 0, 0.04);">
+                    <td style="padding: 16px 20px; border-bottom: 1px solid rgba(0, 0, 0, 0.04);">透明度</td>
+                    <td style="padding: 16px 20px; border-bottom: 1px solid rgba(0, 0, 0, 0.04);">背景层的半透明程度，决定玻璃的“厚度”感</td>
+                    <td style="padding: 16px 20px; border-bottom: 1px solid rgba(0, 0, 0, 0.04);">rgba(255,255,255,0.4)</td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(0, 0, 0, 0.04);">
+                    <td style="padding: 16px 20px; border-bottom: 1px solid rgba(0, 0, 0, 0.04);">模糊度</td>
+                    <td style="padding: 16px 20px; border-bottom: 1px solid rgba(0, 0, 0, 0.04);">backdrop‑filter 的 blur 值，影响透射质感</td>
+                    <td style="padding: 16px 20px; border-bottom: 1px solid rgba(0, 0, 0, 0.04);">12px – 20px</td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(0, 0, 0, 0.04);">
+                    <td style="padding: 16px 20px; border-bottom: 1px solid rgba(0, 0, 0, 0.04);">边框</td>
+                    <td style="padding: 16px 20px; border-bottom: 1px solid rgba(0, 0, 0, 0.04);">细线条，用于增强轮廓与光感分离</td>
+                    <td style="padding: 16px 20px; border-bottom: 1px solid rgba(0, 0, 0, 0.04);">1px solid rgba(255,255,255,0.6)</td>
+                </tr>
+                <tr>
+                    <td style="padding: 16px 20px;">圆角</td>
+                    <td style="padding: 16px 20px;">卡片的边角弧度，影响柔和度</td>
+                    <td style="padding: 16px 20px;">18px – 24px</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
 
     <!-- ==============================================
-         四、媒体展示
+         五、媒体展示
     ============================================== -->
 
     <!-- 组件：图片 (高光玻璃相框) -->
@@ -96,7 +136,7 @@
 
 
     <!-- ==============================================
-         五、页脚与装饰
+         六、页脚与装饰
     ============================================== -->
 
     <!-- 组件：分隔线 (极细浅色线) -->

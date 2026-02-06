@@ -1,6 +1,6 @@
 ---
 name: wechat-article-formatter
-description: "Comprehensive WeChat public account article formatting skill for creating professionally styled articles with matching image prompts. Use when Claude needs to format articles for WeChat public accounts, including: (1) Applying styling templates to article content, (2) Generating HTML files compatible with WeChat editor, (3) Creating markdown files with article metadata and image generation prompts, (4) Recommending suitable styling based on article content, (5) Processing article content to extract titles and summaries for prompt generation."
+description: "Comprehensive WeChat public account article formatting skill for creating professionally styled articles with matching image prompts. Use when Claude needs to format articles for WeChat public accounts, including: (1) Applying styling templates to article content, (2) Generating HTML files compatible with WeChat editor, (3) Creating markdown files with article metadata and image generation prompts, (4) Recommending suitable styling based on article content, (5) Processing article content to extract titles and summaries for prompt generation, (6) Generating AI images for article illustrations with user-confirmed prompts."
 ---
 
 # 微信公众号排版技能
@@ -67,6 +67,76 @@ cat 文章.txt | python scripts/process_article.py
 - 文章摘要（约200字）
 - 封面图生成prompt
 - 3个文中配图prompts
+
+#### `generate_image.py`
+AI图片生成脚本，调用豆包大模型生成文章配图。支持prompt优化和用户审核。
+
+**使用方法：**
+```bash
+# 生成封面图（900x383，适合公众号封面）
+python scripts/generate_image.py -p "科技感的公众号封面图" --size cover
+
+# 生成文中配图（900x600，横向）
+python scripts/generate_image.py -p "未来城市" --size content
+
+# 生成横幅图片（900x300）
+python scripts/generate_image.py -p "横幅标题" --size banner
+
+# 自定义尺寸
+python scripts/generate_image.py -p "自定义图片" --width 800 --height 600
+
+# 使用AI优化prompt后再生成（生图前需要用户审核）
+python scripts/generate_image.py -p "简约商务插图" -O
+```
+
+**功能：**
+- 根据用户描述生成图片
+- 支持三种预设尺寸：cover（封面图）、content（文中配图）、banner（横幅）
+- 支持自定义宽高
+- 可选择使用AI优化prompt
+- 生成图片前展示prompt给用户审核
+- 自动下载并保存图片到本地
+
+**尺寸说明：**
+- `cover` / `封面图`: 900x383（2.35:1），适合公众号封面
+- `content` / `文中配图`: 900x600（3:2），横向，适合文中插图
+- `banner` / `横幅`: 900x300（3:1），横向，适合头图/分割图
+- 默认: 900x600
+
+**环境变量：**
+- `ARK_API_KEY`: 火山引擎API密钥（需在.env文件中配置）
+
+#### `format_with_images.py`
+微信公众号排版与图片生成整合脚本，完成从文章到最终输出的完整流程。
+
+**使用方法：**
+```bash
+# 基本用法
+python scripts/format_with_images.py -a <文章文件> -s <风格名称> -o <输出目录>
+
+# 示例
+python scripts/format_with_images.py -a article.md -s 极简时尚 -o output
+```
+
+**功能：**
+- 分析文章内容，提取标题和摘要
+- 自动生成封面图和文中配图的prompts
+- 调用AI生成图片（封面图900x383，配图900x600）
+- 创建Markdown文件（包含prompt和生成的图片引用）
+- 根据选择的风格生成HTML文件，并将图片插入HTML模板
+
+**输出文件：**
+- `<标题>.md`: 包含文章元数据、prompts和图片引用的Markdown文件
+- `<标题>.html`: 包含生成图片的微信公众号HTML文件
+- `images/*.png`: 生成的图片文件
+
+**参数说明：**
+- `-a, --article`: 文章文件路径（必需）
+- `-s, --style`: 风格名称（默认: index.html）
+- `-o, --output-dir`: 输出目录（默认: output）
+
+**环境变量：**
+- `ARK_API_KEY`: 火山引擎API密钥（需在.env文件中配置）
 
 #### `style_recommender.py`
 风格推荐脚本，根据文章内容推荐合适的排版风格。
@@ -151,6 +221,7 @@ python scripts/style_recommender.py <文章文件>
 2. **使用安全字体**：采用微信推荐字体栈
 3. **图片处理**：使用width: 100%确保响应式显示
 4. **避免被过滤**：不使用position: fixed等可能被微信过滤的属性
+4. **避免组件风格缺失** ：如果参考的模板中没有包含某个组件的样式，你可以根据整体的风格样式进行完善，不要直接使用md格式。
 
 ### 文件输出规范
 

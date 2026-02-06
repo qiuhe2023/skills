@@ -118,9 +118,68 @@
         </div>
     </section>
 
+    <!-- ==============================================
+         五、表格组件类
+    ============================================== -->
+
+    <!-- 组件：像素风格数据表格 (DOS命令行风格) -->
+    <section style="margin: 30px 0; background: #000; border: 4px solid #fff; outline: 4px solid #000; box-shadow: 8px 8px 0px #888;">
+        <!-- 表格标题栏 (窗口标题风格) -->
+        <div style="background: #000080; color: #fff; font-size: 13px; font-weight: bold; padding: 6px 12px; display: flex; justify-content: space-between; border-bottom: 2px solid #fff;">
+            <span>📊 DATA_TABLE.EXE</span>
+            <span style="font-family: monospace;">[ - ] [ □ ] [ X ]</span>
+        </div>
+
+        <!-- 表格主体 -->
+        <div style="padding: 15px;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 12px; font-family: 'Courier New', monospace; color: #fff;">
+                <thead>
+                    <tr>
+                        <th style="border: 2px solid #fff; background: #333; padding: 10px 12px; text-align: left; text-transform: uppercase;">编号</th>
+                        <th style="border: 2px solid #fff; background: #333; padding: 10px 12px; text-align: left; text-transform: uppercase;">项目</th>
+                        <th style="border: 2px solid #fff; background: #333; padding: 10px 12px; text-align: left; text-transform: uppercase;">属性</th>
+                        <th style="border: 2px solid #fff; background: #333; padding: 10px 12px; text-align: left; text-transform: uppercase;">状态</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="border: 2px solid #fff; padding: 10px 12px; background: #111;">01</td>
+                        <td style="border: 2px solid #fff; padding: 10px 12px; background: #111;">像素字体</td>
+                        <td style="border: 2px solid #fff; padding: 10px 12px; background: #111;">Courier New</td>
+                        <td style="border: 2px solid #fff; padding: 10px 12px; background: #111; color: #0f0;">✓ ACTIVE</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 2px solid #fff; padding: 10px 12px; background: #222;">02</td>
+                        <td style="border: 2px solid #fff; padding: 10px 12px; background: #222;">边框宽度</td>
+                        <td style="border: 2px solid #fff; padding: 10px 12px; background: #222;">4px</td>
+                        <td style="border: 2px solid #fff; padding: 10px 12px; background: #222; color: #0f0;">✓ ACTIVE</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 2px solid #fff; padding: 10px 12px; background: #111;">03</td>
+                        <td style="border: 2px solid #fff; padding: 10px 12px; background: #111;">颜色方案</td>
+                        <td style="border: 2px solid #fff; padding: 10px 12px; background: #111;">B/W + Accent</td>
+                        <td style="border: 2px solid #fff; padding: 10px 12px; background: #111; color: #0f0;">✓ ACTIVE</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 2px solid #fff; padding: 10px 12px; background: #222;">04</td>
+                        <td style="border: 2px solid #fff; padding: 10px 12px; background: #222;">阴影偏移</td>
+                        <td style="border: 2px solid #fff; padding: 10px 12px; background: #222;">8px</td>
+                        <td style="border: 2px solid #fff; padding: 10px 12px; background: #222; color: #ff0;">⚠ WARNING</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4" style="border-top: 2px solid #fff; padding: 8px 12px; background: #333; font-size: 11px; color: #ccc;">
+                            <span style="color: #0f0;">▶</span> SYSTEM: 共 4 个项目已加载 | 内存使用: 64KB | <span style="color: #0f0;">READY</span>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </section>
 
     <!-- ==============================================
-         五、辅助美化类
+         六、辅助美化类
     ============================================== -->
 
     <!-- 组件：背景色块容器 (警告弹窗风格) -->

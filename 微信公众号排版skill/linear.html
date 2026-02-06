@@ -130,6 +130,55 @@
             opacity: 0.8;
             display: block;
         }
+        /* 表格组件样式 */
+        .data-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 24px 0;
+            font-size: 14px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .data-table th {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 12px 16px;
+            text-align: left;
+            font-weight: 500;
+            color: var(--text-main);
+            border-bottom: 1px solid var(--border-color);
+            font-size: 12px;
+            letter-spacing: 0.5px;
+        }
+        .data-table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-dim);
+        }
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+        .data-table tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--text-main);
+        }
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        .status-active {
+            background: rgba(34, 197, 94, 0.15);
+            color: #22c55e;
+        }
+        .status-pending {
+            background: rgba(234, 179, 8, 0.15);
+            color: #eab308;
+        }
         .footer {
             text-align: center;
             margin-top: 80px;
@@ -179,6 +228,41 @@
         <p>
             注意标题的文字渐变效果。我们使用了从纯白到灰色的垂直渐变，这模拟了光线从上方照在文字上的自然物理效果，使标题看起来更有深度。
         </p>
+    </section>
+
+    <!-- Data Table Section -->
+    <section style="margin: 40px 0;">
+        <h3>数据概览</h3>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>模块名称</th>
+                    <th>状态</th>
+                    <th>版本</th>
+                    <th>更新日期</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Core Engine</td>
+                    <td><span class="status-badge status-active">Active</span></td>
+                    <td>v2.4.0</td>
+                    <td>2024.01.15</td>
+                </tr>
+                <tr>
+                    <td>Sync Module</td>
+                    <td><span class="status-badge status-active">Active</span></td>
+                    <td>v1.8.2</td>
+                    <td>2024.01.12</td>
+                </tr>
+                <tr>
+                    <td>Analytics</td>
+                    <td><span class="status-badge status-pending">Pending</span></td>
+                    <td>v3.0.0-beta</td>
+                    <td>2024.01.10</td>
+                </tr>
+            </tbody>
+        </table>
     </section>
 
     <!-- Image Display -->

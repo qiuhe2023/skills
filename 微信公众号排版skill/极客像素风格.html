@@ -238,6 +238,67 @@
         </div>
     </div>
 
+    <!-- 组件：极客像素数据表格 -->
+    <div class="pixel-card" style="margin-top: 40px;">
+        <div class="corner tl"></div><div class="corner tr"></div>
+        <div class="corner bl"></div><div class="corner br"></div>
+
+        <!-- 表格标题栏 -->
+        <div style="background: #000; border: 2px solid var(--accent-purple); padding: 8px 12px; margin-bottom: 15px;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="color: var(--accent-purple); font-weight: bold; font-size: 14px; font-family: monospace;">📊 SYSTEM_DATA_TABLE</span>
+                <span style="color: var(--text-gray); font-size: 11px; font-family: monospace;">[ - ] [ □ ] [ X ]</span>
+            </div>
+        </div>
+
+        <!-- 表格主体 -->
+        <div style="overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 13px; font-family: 'Courier New', monospace; color: var(--text-white);">
+                <thead>
+                    <tr>
+                        <th style="border: 2px solid var(--accent-purple); background: rgba(124, 77, 255, 0.1); padding: 10px 12px; text-align: left; font-weight: bold; text-transform: uppercase;">ID</th>
+                        <th style="border: 2px solid var(--accent-purple); background: rgba(124, 77, 255, 0.1); padding: 10px 12px; text-align: left; font-weight: bold; text-transform: uppercase;">模块</th>
+                        <th style="border: 2px solid var(--accent-purple); background: rgba(124, 77, 255, 0.1); padding: 10px 12px; text-align: left; font-weight: bold; text-transform: uppercase;">状态</th>
+                        <th style="border: 2px solid var(--accent-purple); background: rgba(124, 77, 255, 0.1); padding: 10px 12px; text-align: left; font-weight: bold; text-transform: uppercase;">进程</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="border: 2px solid #27272a; padding: 10px 12px; background: rgba(0, 0, 0, 0.5); font-family: monospace;">0x01</td>
+                        <td style="border: 2px solid #27272a; padding: 10px 12px; background: rgba(0, 0, 0, 0.5);">PIXEL_RENDER</td>
+                        <td style="border: 2px solid #27272a; padding: 10px 12px; background: rgba(0, 0, 0, 0.5); color: #4ade80; font-weight: bold;">ONLINE</td>
+                        <td style="border: 2px solid #27272a; padding: 10px 12px; background: rgba(0, 0, 0, 0.5); font-family: monospace;">65%</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 2px solid #27272a; padding: 10px 12px; background: rgba(15, 15, 15, 0.5); font-family: monospace;">0x02</td>
+                        <td style="border: 2px solid #27272a; padding: 10px 12px; background: rgba(15, 15, 15, 0.5);">GRID_ALIGN</td>
+                        <td style="border: 2px solid #27272a; padding: 10px 12px; background: rgba(15, 15, 15, 0.5); color: #4ade80; font-weight: bold;">ONLINE</td>
+                        <td style="border: 2px solid #27272a; padding: 10px 12px; background: rgba(15, 15, 15, 0.5); font-family: monospace;">100%</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 2px solid #27272a; padding: 10px 12px; background: rgba(0, 0, 0, 0.5); font-family: monospace;">0x03</td>
+                        <td style="border: 2px solid #27272a; padding: 10px 12px; background: rgba(0, 0, 0, 0.5);">COLOR_FILTER</td>
+                        <td style="border: 2px solid #27272a; padding: 10px 12px; background: rgba(0, 0, 0, 0.5); color: #facc15; font-weight: bold;">WARNING</td>
+                        <td style="border: 2px solid #27272a; padding: 10px 12px; background: rgba(0, 0, 0, 0.5); font-family: monospace;">87%</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 2px solid #27272a; padding: 10px 12px; background: rgba(15, 15, 15, 0.5); font-family: monospace;">0x04</td>
+                        <td style="border: 2px solid #27272a; padding: 10px 12px; background: rgba(15, 15, 15, 0.5);">TERMINAL_UI</td>
+                        <td style="border: 2px solid #27272a; padding: 10px 12px; background: rgba(15, 15, 15, 0.5); color: #ef4444; font-weight: bold;">ERROR</td>
+                        <td style="border: 2px solid #27272a; padding: 10px 12px; background: rgba(15, 15, 15, 0.5); font-family: monospace;">42%</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4" style="border-top: 2px solid var(--accent-purple); padding: 8px 12px; background: rgba(0, 0, 0, 0.8); font-size: 11px; color: var(--text-gray); font-family: monospace;">
+                            <span style="color: var(--accent-purple);">▶</span> SYSTEM_STATUS: 4 MODULES LOADED | ACTIVE: 2/4 | <span style="color: #4ade80;">READY</span>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+
     <div class="img-frame">
         <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80" alt="像素化科技硬件">
     </div>

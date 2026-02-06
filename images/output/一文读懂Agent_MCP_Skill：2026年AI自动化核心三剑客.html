@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一文读懂Agent、MCP、Skill：2026年AI自动化核心三剑客</title>
+</head>
+<body style="margin: 0; padding: 0; background-color: #ffffff; min-height: 100vh; font-family: 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;">
+
+<!-- 全局装饰：网格背景（增强科技精密感） -->
+<div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: radial-gradient(#e5e7eb 1px, transparent 1px); background-size: 20px 20px; z-index: 0; opacity: 0.5;"></div>
+
+<!-- 主内容容器 -->
+<section style="position: relative; max-width: 600px; margin: 0 auto; box-sizing: border-box; color: #333; line-height: 1.8; padding: 40px 20px; z-index: 1;">
+
+    <!-- 封面图 -->
+    <section style="margin-bottom: 40px; position: relative;">
+        <div style="border: 1px solid #000; padding: 4px;">
+            <div style="overflow: hidden; line-height: 0;">
+                <img src="../images/eb4bc86b-c64b-4104-b05f-38c6e798d7d0.png" style="width: 100% !important; height: auto !important;" alt="封面图">
+            </div>
+        </div>
+    </section>
+
+    <!-- 组件：H2 二级标题 -->
+    <section style="margin-bottom: 30px;">
+        <div style="border: 2px solid #0066ff; padding: 5px; display: inline-block;">
+            <div style="border: 1px solid #0066ff; background: #0066ff; color: #fff; padding: 5px 20px;">
+                <h2 style="font-size: 18px; font-weight: bold; margin: 0; letter-spacing: 2px; text-transform: uppercase;">
+                    引言
+                </h2>
+            </div>
+        </div>
+    </section>
+
+    <!-- 引言内容 -->
+    <p style="margin: 0 0 25px 0; font-size: 15px; color: #444; border-left: 2px solid #0066ff; padding-left: 15px;">
+        你有没有过这样的经历？每天被报表、数据查询和客服回复这些重复工作填满，明明有AI工具却总觉得用着不顺手。要么是不同工具格式不统一，要么是复杂任务需要反复手动干预，成本还高得吓人。2026年，Agent、MCP和Skill这三个技术的组合正在改变这种局面。
+    </p>
+
+    <p style="margin: 0 0 25px 0; font-size: 15px; color: #444; border-left: 2px solid #0066ff; padding-left: 15px;">
+        简单来说，这三者的关系就像一个项目团队：Agent是项目经理，负责理解需求和规划任务；MCP是调度中心，确保所有环节按标准流程衔接；Skill是专业员工，负责完成具体操作。今天我们就从背景、定义、差异、场景和成本五个方面，把这三个技术讲清楚。
+    </p>
+
+    <!-- 配图1：技术背景 -->
+    <section style="margin-bottom: 40px; position: relative;">
+        <div style="font-size: 11px; color: #999; margin-bottom: 8px; letter-spacing: 1px; font-family: monospace;">ILLUSTRATION_01: BACKGROUND_AND_PAIN_POINTS</div>
+        <div style="border: 1px solid #000; padding: 4px;">
+            <div style="overflow: hidden; line-height: 0;">
+                <img src="../images/00db8e8c-af32-433d-8a4a-db79971c85b9.png" style="width: 100% !important; height: auto !important;" alt="技术背景与痛点">
+            </div>
+        </div>
+    </section>
+
+    <!-- 组件：H2 -->
+    <section style="margin-bottom: 30px;">
+        <div style="border: 2px solid #0066ff; padding: 5px; display: inline-block;">
+            <div style="border: 1px solid #0066ff; background: #0066ff; color: #fff; padding: 5px 20px;">
+                <h2 style="font-size: 18px; font-weight: bold; margin: 0; letter-spacing: 2px; text-transform: uppercase;">
+                    技术背景与核心痛点
+                </h2>
+            </div>
+        </div>
+    </section>
+
+    <p style="margin: 0 0 25px 0; font-size: 15px; color: #444; border-left: 2px solid #0066ff; padding-left: 15px;">
+        随着AI技术的普及，大家对自动化的需求已经从简单的问答生成，升级到了复杂任务的自主完成。比如全流程报表生成、多系统协同办公这类场景。但早期AI存在几个明显的问题：
+    </p>
+
+    <!-- 痛点列表 -->
+    <section style="margin-bottom: 25px; padding: 20px; background: #f8f9fa; border: 1px solid #0066ff; position: relative;">
+        <div style="position: absolute; top: 0; right: 0; width: 15px; height: 15px; background: #0066ff;"></div>
+        <p style="margin: 0; font-size: 14px; color: #333; line-height: 1.7;">
+            1. <strong style="color: #0066ff;">工具调用混乱</strong>：不同大模型和外部工具的调用格式不统一，开发者需要为每个工具单独适配，效率极低。
+        </p>
+        <p style="margin: 15px 0 0 0; font-size: 14px; color: #333; line-height: 1.7;">
+            2. <strong style="color: #0066ff;">复杂任务无法自主推进</strong>：传统AI只能完成单一操作，无法像人类一样拆分任务、调整流程。
+        </p>
+        <p style="margin: 15px 0 0 0; font-size: 14px; color: #333; line-height: 1.7;">
+            3. <strong style="color: #0066ff;">成本不可控</strong>：工具调用和能力加载往往消耗大量计算资源，普通企业和个人难以承受。
+        </p>
+        <p style="margin: 15px 0 0 0; font-size: 14px; color: #333; line-height: 1.7;">
+            4. <strong style="color: #0066ff;">能力复用性差</strong>：为一个任务开发的AI能力，无法快速迁移到其他场景。
+        </p>
+    </section>
+
+    <p style="margin: 0 0 25px 0; font-size: 15px; color: #444; border-left: 2px solid #0066ff; padding-left: 15px;">
+        在这样的背景下，Agent、MCP和Skill相继诞生。其中MCP由Anth<sub>ropic</sub>在2024年底推出标准化协议，Skill作为轻量化补充随后普及，而Agent则借助前两者的支撑，成为2026年AI生态的核心载体。
+    </p>
+
+    <p style="margin: 0 0 25px 0; font-size: 15px; color: #444; border-left: 2px solid #0066ff; padding-left: 15px;">
+        这三者共同解决了两个核心痛点：
+    </p>
+
+    <p style="margin: 0 0 25px 0; font-size: 15px; color: #444; border-left: 2px solid #0066ff; padding-left: 15px;">
+        1. <strong style="color: #0066ff;">AI自动化落地难</strong>：实现从需求输入到任务完成的全流程自主推进，无需人工反复干预。实测显示，三者协同能让开发效率提升3倍以上。
+    </p>
+
+    <p style="margin: 0 0 25px 0; font-size: 15px; color: #444; border-left: 2px solid #0066ff; padding-left: 15px;">
+        2. <strong style="color: #0066ff;">技术使用成本高</strong>：通过标准化调度和轻量化能力设计，降低了AI自动化的使用成本和门槛，同时实现能力模块化复用。
+    </p>
+
+    <!-- 配图2：Agent详解 -->
+    <section style="margin-bottom: 40px; position: relative;">
+        <div style="font-size: 11px; color: #999; margin-bottom: 8px; letter-spacing: 1px; font-family: monospace;">ILLUSTRATION_02: AGENT_ARCHITECTURE</div>
+        <div style="border: 1px solid #000; padding: 4px;">
+            <div style="overflow: hidden; line-height: 0;">
+                <img src="../images/1fbf32e1-f277-4db2-9fb8-69e9b6611dfe.png" style="width: 100% !important; height: auto !important;" alt="Agent架构">
+            </div>
+        </div>
+    </section>
+
+    <!-- 组件：H2 -->
+    <section style="margin-bottom: 30px;">
+        <div style="border: 2px solid #0066ff; padding: 5px; display: inline-block;">
+            <div style="border: 1px solid #0066ff; background: #0066ff; color: #fff; padding: 5px 20px;">
+                <h2 style="font-size: 18px; font-weight: bold; margin: 0; letter-spacing: 2px; text-transform: uppercase;">
+                    详解Agent：智能助手的大脑
+                </h2>
+            </div>
+        </div>
+    </section>
+
+    <p style="margin: 0 0 25px 0; font-size: 15px; color: #444; border-left: 2px solid #0066ff; padding-left: 15px;">
+        Agent，简单来说就是能自主思考和推进任务的AI助手。它不用你一步步下达指令，只要告诉它最终需求，比如"每天9点生成部门报表并发送到群聊"，它就能自主理解需求、拆分任务、调用相关能力。遇到问题时，比如数据抓取失败，它还能自我反思、调整方案，直到完成任务。
+    </p>
+
+    <p style="margin: 0 0 25px 0; font-size: 15px; color: #444; border-left: 2px solid #0066ff; padding-left: 15px;">
+        Agent在三者体系中的核心定位是<span style="background: #0066ff; color: #fff; padding: 2px 6px; font-weight: bold;">"核心执行主体"</span>，也是整个AI自动化流程的发起者和统筹者。它的主要作用有两个：
+    </p>
+
+    <p style="margin: 0 0 25px 0; font-size: 15px; color: #444; border-left: 2px solid #0066ff; padding-left: 15px;">
+        1. <strong style="color: #0066ff;">定方向</strong>：接收用户需求后，解析需求、明确目标，拆分出可执行的具体步骤。
+    </p>
+
+    <p style="margin: 0 0 25px 0; font-size: 15px; color: #444; border-left: 2px solid #0066ff; padding-left: 15px;">
+        2. <strong style="color: #0066ff;">保落地</strong>：统筹整个任务流程，通过MCP调用合适的Skill，监控任务进度，处理异常情况，最终将结果反馈给用户。
+    </p>
+
+    <p style="margin: 0 0 25px 0; font-size: 15px; color: #444; border-left: 2px solid #0066ff; padding-left: 15px;">
+        Agent的核心特点包括：
+    </p>
+
+    <ul style="margin: 0 0 25px 15px; padding-left: 15px; list-style: none;">
+        <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
+            <span style="position: absolute; left: 0; color: #0066ff;">[01]</span>
+            <strong style="color: #333;">自主决策能力</strong>：无需人工逐步指令，能根据需求自主规划任务流程。
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
+            <span style="position: absolute; left: 0; color: #0066ff;">[02]</span>
+            <strong style="color: #333;">上下文记忆能力</strong>：能记住任务推进过程中的所有信息，避免重复操作。
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
+            <span style="position: absolute; left: 0; color: #0066ff;">[03]</span>
+            <strong style="color: #333;">自我反思能力</strong>：能对执行结果进行复盘，发现问题并优化。
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
+            <span style="position: absolute; left: 0; color: #0066ff;">[04]</span>
+            <strong style="color: #333;">协同性强</strong>：既能调用多个Skill完成复杂任务，也能通过MCP与其他Agent协同。
+        </li>
+    </ul>
+
+    <!-- 组件：H2 -->
+    <section style="margin-bottom: 30px;">
+        <div style="border: 2px solid #0066ff; padding: 5px; display: inline-block;">
+            <div style="border: 1px solid #0066ff; background: #0066ff; color: #fff; padding: 5px 20px;">
+                <h2 style="font-size: 18px; font-weight: bold; margin: 0; letter-spacing: 2px; text-transform: uppercase;">
+                    详解MCP：AI世界的通用接口
+                </h2>
+            </div>
+        </div>
+    </section>
+
+    <p style="margin: 0 0 25px 0; font-size: 15px; color: #444; border-left: 2px solid #0066ff; padding-left: 15px;">
+        MCP，全称Model Context Protocol（模型上下文协议），是Agent和Skill之间的桥梁。早期不同的Skill调用格式不统一，Agent调用不同的Skill需要适配不同的格式，就像用不同品牌的充电器给手机充电器，需要各种转接头。而MCP就相当于USB-C接口，制定了统一的调用标准，让Agent能轻松调用所有符合标准的Skill。
+    </p>
+
+    <p style="margin: 0 0 25px 0; font-size: 15px; color: #444; border-left: 2px solid #0066ff; padding-left: 15px;">
+        MCP在三者体系中的核心定位是<span style="background: #0066ff; color: #fff; padding: 2px 6px; font-weight: bold;">"核心枢纽"</span>，主要作用包括：
+    </p>
+
+    <p style="margin: 0 0 25px 0; font-size: 15px; color: #444; border-left: 2px solid #0066ff; padding-left: 15px;">
+        1. <strong style="color: #0066ff;">衔接作用</strong>：作为Agent和Skill的中间桥梁，实现两者的高效联动。
+    </p>
+
+    <p style="margin: 0 0 25px 0; font-size: 15px; color: #444; border-left: 2px solid #0066ff; padding-left: 15px;">
+        2. <strong style="color: #0066ff;">调度作用</strong>：当Agent需要调用多个Skill时，负责分配优先级、规划执行顺序。
+    </p>
+
+    <p style="margin: 0 0 25px 0; font-size: 15px; color: #444; border-left: 2px solid #0066ff; padding-left: 15px;">
+        3. <strong style="color: #0066ff;">管控作用</strong>：包括上下文管理和安全管控，同时优化性能，实现流式响应、低延迟。
+    </p>
+
+    <p style="margin: 0 0 25px 0; font-size: 15px; color: #444; border-left: 2px solid #0066ff; padding-left: 15px;">
+        MCP的核心特点包括：
+    </p>
+
+    <ul style="margin: 0 0 25px 15px; padding-left: 15px; list-style: none;">
+        <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
+            <span style="position: absolute; left: 0; color: #0066ff;">[01]</span>
+            <strong style="color: #333;">标准化</strong>：制定了统一的工具调用Schema，让不同的Agent和Skill都能"互联互通"。
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
+            <span style="position: absolute; left: 0; color: #0066ff;">[02]</span>
+            <strong style="color: #333;">轻量化管控</strong>：无需参与具体的任务执行，只负责调度和衔接，不占用过多计算资源。
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
+            <span style="position: absolute; left: 0; color: #0066ff;">[03]</span>
+            <strong style="color: #333;">安全性高</strong>：通过安全沙箱限制Skill的访问权限，防止恶意操作。
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
+            <span style="position: absolute; left: 0; color: #0066ff;">[04]</span>
+            <strong style="color: #333;">扩展性强</strong>：支持插件式工具箱，可根据需求灵活扩展Skill类型。
+        </li>
+    </ul>
+
+    <!-- 组件：H2 -->
+    <section style="margin-bottom: 30px;">
+        <div style="border: 2px solid #0066ff; padding: 5px; display: inline-block;">
+            <div style="border: 1px solid #0066ff; background: #0066ff; color: #fff; padding: 5px 20px;">
+                <h2 style="font-size: 18px; font-weight: bold; margin: 0; letter-spacing: 2px; text-transform: uppercase;">
+                    详解Skill：Agent的能力插件
+                </h2>
+            </div>
+        </div>
+    </section>
+
+    <p style="margin: 0 0 25px 0; font-size: 15px; color: #444; border-left: 2px solid #0066ff; padding-left: 15px;">
+        Skill，通俗来讲就是Agent的专属技能插件。它不是单纯的工具，而更像给Agent的专业培训课程和操作手册。比如"数据抓取Skill"、"话术生成Skill"、"表格整理Skill"，每一个Skill都对应一项具体的、可落地的能力。
+    </p>
+
+    <p style="margin: 0 0 25px 0; font-size: 15px; color: #444; border-left: 2px solid #0066ff; padding-left: 15px;">
+        Skill在三者体系中的核心定位是<span style="background: #0066ff; color: #fff; padding: 2px 6px; font-weight: bold;">"核心能力载体"</span>，主要作用是承接MCP转发的调用请求，完成具体的细分操作。比如Agent规划了"抓取数据"的步骤，就会通过MCP调用"数据抓取Skill"，由这个Skill完成具体的数据提取操作。
+    </p>
+
+    <p style="margin: 0 0 25px 0; font-size: 15px; color: #444; border-left: 2px solid #0066ff; padding-left: 15px;">
+        常见的Skill类型包括：
+    </p>
+
+    <ul style="margin: 0 0 25px 15px; padding-left: 15px; list-style: none;">
+        <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
+            <span style="position: absolute; left: 0; color: #0066ff;">[01]</span>
+            <strong style="color: #333;">数据处理类Skill</strong>：专注于数据相关的操作，比如数据抓取、数据清洗、表格生成等。
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
+            <span style="position: absolute; left: 0; color: #0066ff;">[02]</span>
+            <strong style="color: #333;">交互响应类Skill</strong>：专注于与人或系统的交互，比如话术生成、多语言翻译、消息推送等。
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
+            <span style="position: absolute; left: 0; color: #0066ff;">[03]</span>
+            <strong style="color: #333;">工具调用类Skill</strong>：专注于调用外部工具，比如文件编辑、邮件发送、网页搜索等。
+        </li>
+    </ul>
+
+    <p style="margin: 0 0 25px 0; font-size: 15px; color: #444; border-left: 2px solid #0066ff; padding-left: 15px;">
+        Skill的核心特点包括：
+    </p>
+
+    <ul style="margin: 0 0 25px 15px; padding-left: 15px; list-style: none;">
+        <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
+            <span style="position: absolute; left: 0; color: #0066ff;">[01]</span>
+            <strong style="color: #333;">可复用性强</strong>：同一个Skill可被多个Agent、多个任务重复调用。
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
+            <span style="position: absolute; left: 0; color: #0066ff;">[02]</span>
+            <strong style="color: #333;">轻量化、按需加载</strong>：启动时只加载简短描述，使用时才加载完整指令和代码。
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
+            <span style="position: absolute; left: 0; color: #0066ff;">[03]</span>
+            <strong style="color: #333;">可配置性高</strong>：可根据具体任务需求，灵活配置Skill的参数。
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
+            <span style="position: absolute; left: 0; color: #0066ff;">[04]</span>
+            <strong style="color: #333;">模块化组合</strong>：多个Skill可通过MCP协同组合，形成更复杂的能力。
+        </li>
+    </ul>
+
+    <!-- 配图3：MCP架构 -->
+    <section style="margin-bottom: 40px; position: relative;">
+        <div style="font-size: 11px; color: #999; margin-bottom: 8px; letter-spacing: 1px; font-family: monospace;">ILLUSTRATION_03: MCP_ARCHITECTURE</div>
+        <div style="border: 1px solid #000; padding: 4px;">
+            <div style="overflow: hidden; line-height: 0;">
+                <img src="../images/fa90e8db-b968-4fba-8067-30a05b4e8ff4.png" style="width: 100% !important; height: auto !important;" alt="MCP架构">
+            </div>
+        </div>
+    </section>
+
+    <!-- 组件：H2 -->
+    <section style="margin-bottom: 30px;">
+        <div style="border: 2px solid #0066ff; padding: 5px; display: inline-block;">
+            <div style="border: 1px solid #0066ff; background: #0066ff; color: #fff; padding: 5px 20px;">
+                <h2 style="font-size: 18px; font-weight: bold; margin: 0; letter-spacing: 2px; text-transform: uppercase;">
+                    三者的异同对比
+                </h2>
+            </div>
+        </div>
+    </section>
+
+    <p style="margin: 0 0 25px 0; font-size: 15px; color: #444; border-left: 2px solid #0066ff; padding-left: 15px;">
+        <strong style="color: #0066ff;">相同点</strong>
+    </p>
+
+    <!-- 表格：三者对比 -->
+    <section style="margin-bottom: 30px;">
+        <div style="border: 1px solid #000; padding: 1px;">
+            <div style="display: flex; background-color: #0066ff; border-bottom: 1px solid #000;">
+                <div style="flex: 1; padding: 10px 12px; font-size: 12px; font-weight: bold; color: #fff; border-right: 1px solid #000;">维度</div>
+                <div style="flex: 1; padding: 10px 12px; font-size: 12px; font-weight: bold; color: #fff; border-right: 1px solid #000;">Agent</div>
+                <div style="flex: 1; padding: 10px 12px; font-size: 12px; font-weight: bold; color: #fff; border-right: 1px solid #000;">MCP</div>
+                <div style="flex: 1; padding: 10px 12px; font-size: 12px; font-weight: bold; color: #fff;">Skill</div>
+            </div>
+            <div style="display: flex; border-bottom: 1px solid #eee;">
+                <div style="flex: 1; padding: 10px 12px; font-size: 12px; color: #333; border-right: 1px solid #eee; background: #fff; font-weight: bold;">定义</div>
+                <div style="flex: 1; padding: 10px 12px; font-size: 12px; color: #333; border-right: 1px solid #eee; background: #fff;">自主统筹的智能助手</div>
+                <div style="flex: 1; padding: 10px 12px; font-size: 12px; color: #333; border-right: 1px solid #eee; background: #fff;">标准化调度中枢</div>
+                <div style="flex: 1; padding: 10px 12px; font-size: 12px; color: #333; background: #fff;">专属技能插件</div>
+            </div>
+            <div style="display: flex; border-bottom: 1px solid #eee;">
+                <div style="flex: 1; padding: 10px 12px; font-size: 12px; color: #333; border-right: 1px solid #eee; background: #f9f9f9; font-weight: bold;">角色</div>
+                <div style="flex: 1; padding: 10px 12px; font-size: 12px; color: #333; border-right: 1px solid #eee; background: #f9f9f9;">项目经理，管"做什么、怎么做"</div>
+                <div style="flex: 1; padding: 10px 12px; font-size: 12px; color: #333; border-right: 1px solid #eee; background: #f9f9f9;">调度中枢，管"谁来做、按什么顺序做"</div>
+                <div style="flex: 1; padding: 10px 12px; font-size: 12px; color: #333; background: #f9f9f9;">技能员工，管"具体做"</div>
+            </div>
+            <div style="display: flex; border-bottom: 1px solid #eee;">
+                <div style="flex: 1; padding: 10px 12px; font-size: 12px; color: #333; border-right: 1px solid #eee; background: #fff; font-weight: bold;">功能</div>
+                <div style="flex: 1; padding: 10px 12px; font-size: 12px; color: #333; border-right: 1px solid #eee; background: #fff;">解析需求、拆分任务、统筹进度</div>
+                <div style="flex: 1; padding: 10px 12px; font-size: 12px; color: #333; border-right: 1px solid #eee; background: #fff;">统一调度、衔接Agent与Skill、管控流程</div>
+                <div style="flex: 1; padding: 10px 12px; font-size: 12px; color: #333; background: #fff;">执行具体的细分操作</div>
+            </div>
+            <div style="display: flex; border-bottom: 1px solid #eee;">
+                <div style="flex: 1; padding: 10px 12px; font-size: 12px; color: #333; border-right: 1px solid #eee; background: #f9f9f9; font-weight: bold;">适用场景</div>
+                <div style="flex: 1; padding: 10px 12px; font-size: 12px; color: #333; border-right: 1px solid #eee; background: #f9f9f9;">复杂任务自主规划、多流程联动统筹</div>
+                <div style="flex: 1; padding: 10px 12px; font-size: 12px; color: #333; border-right: 1px solid #eee; background: #f9f9f9;">多Agent协同、多Skill调度、跨系统流程管控</div>
+                <div style="flex: 1; padding: 10px 12px; font-size: 12px; color: #333; background: #f9f9f9;">单一能力落地、重复操作执行</div>
+            </div>
+            <div style="display: flex;">
+                <div style="flex: 1; padding: 10px 12px; font-size: 12px; color: #333; border-right: 1px solid #eee; background: #fff; font-weight: bold;">Token消耗</div>
+                <div style="flex: 1; padding: 10px 12px; font-size: 12px; color: #333; border-right: 1px solid #eee; background: #fff;">取决于决策复杂度，差异较大</div>
+                <div style="flex: 1; padding: 10px 12px; font-size: 12px; color: #333; border-right: 1px solid #eee; background: #fff;">取决于调度频次和工具数量，消耗相对较高</div>
+                <div style="flex: 1; padding: 10px 12px; font-size: 12px; color: #00aa00; font-weight: bold; background: #fff;">极低，按需加载</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 篇幅分隔 -->
+    <div style="border-top: 2px dashed #0066ff; margin: 40px 0;"></div>
+
+    <!-- 页脚 -->
+    <section style="text-align: center; color: #999;">
+        <p style="margin: 0; font-size: 11px; letter-spacing: 3px; font-weight: bold;">-- END OF ARTICLE --</p>
+        <p style="margin: 5px 0 0 0; font-size: 10px;">GENERATED BY WECHAT_ARTICLE_FORMATTER</p>
+    </section>
+
+</section>
+
+</body>
+</html>

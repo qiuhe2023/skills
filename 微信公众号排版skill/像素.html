@@ -81,6 +81,61 @@
         </div>
     </section>
 
+    <!-- 组件：像素风格数据表格 (游戏排行榜风格) -->
+    <section style="margin-bottom: 40px; border: 4px solid #000; background: #fff; box-shadow: 8px 8px 0px #000;">
+        <!-- 表格标题栏 -->
+        <div style="background: #ffcc00; border-bottom: 4px solid #000; padding: 12px 15px; display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: 16px; font-weight: bold; color: #000; letter-spacing: 1px;">🏆 HIGH_SCORE_TABLE</span>
+            <span style="font-size: 12px; font-weight: bold; color: #000; background: #fff; border: 2px solid #000; padding: 2px 8px;">RANKING</span>
+        </div>
+
+        <!-- 表格主体 -->
+        <div style="padding: 0;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 14px; font-family: 'Courier New', monospace; color: #000;">
+                <thead>
+                    <tr style="background: #000;">
+                        <th style="border: 2px solid #000; padding: 10px 12px; text-align: center; color: #ffcc00; font-weight: bold; width: 60px;">RANK</th>
+                        <th style="border: 2px solid #000; padding: 10px 12px; text-align: left; color: #ffcc00; font-weight: bold;">PLAYER_NAME</th>
+                        <th style="border: 2px solid #000; padding: 10px 12px; text-align: right; color: #ffcc00; font-weight: bold;">SCORE</th>
+                        <th style="border: 2px solid #000; padding: 10px 12px; text-align: center; color: #ffcc00; font-weight: bold; width: 80px;">LEVEL</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background: #fff;">
+                        <td style="border: 2px solid #000; padding: 12px; text-align: center; font-weight: bold; font-size: 16px;">🥇</td>
+                        <td style="border: 2px solid #000; padding: 12px; font-weight: bold;">PIXEL_MASTER</td>
+                        <td style="border: 2px solid #000; padding: 12px; text-align: right; font-weight: bold; color: #ff0000; font-size: 16px;">999,999</td>
+                        <td style="border: 2px solid #000; padding: 12px; text-align: center; font-weight: bold;">99</td>
+                    </tr>
+                    <tr style="background: #f0f0f0;">
+                        <td style="border: 2px solid #000; padding: 12px; text-align: center; font-weight: bold; font-size: 16px;">🥈</td>
+                        <td style="border: 2px solid #000; padding: 12px; font-weight: bold;">8BIT_HERO</td>
+                        <td style="border: 2px solid #000; padding: 12px; text-align: right; font-weight: bold; color: #0000ff; font-size: 16px;">750,500</td>
+                        <td style="border: 2px solid #000; padding: 12px; text-align: center; font-weight: bold;">85</td>
+                    </tr>
+                    <tr style="background: #fff;">
+                        <td style="border: 2px solid #000; padding: 12px; text-align: center; font-weight: bold; font-size: 16px;">🥉</td>
+                        <td style="border: 2px solid #000; padding: 12px; font-weight: bold;">RETRO_GAMER</td>
+                        <td style="border: 2px solid #000; padding: 12px; text-align: right; font-weight: bold; color: #00aa00; font-size: 16px;">520,000</td>
+                        <td style="border: 2px solid #000; padding: 12px; text-align: center; font-weight: bold;">72</td>
+                    </tr>
+                    <tr style="background: #f0f0f0;">
+                        <td style="border: 2px solid #000; padding: 12px; text-align: center; font-weight: bold;">4</td>
+                        <td style="border: 2px solid #000; padding: 12px; font-weight: bold;">ARCADE_KING</td>
+                        <td style="border: 2px solid #000; padding: 12px; text-align: right; font-weight: bold;">380,750</td>
+                        <td style="border: 2px solid #000; padding: 12px; text-align: center; font-weight: bold;">65</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr style="background: #000;">
+                        <td colspan="4" style="padding: 12px; text-align: center; color: #ffcc00; font-weight: bold; font-size: 12px; letter-spacing: 2px;">
+                            ▶ PRESS START TO JOIN ◀
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </section>
 
     <section style="background-color: #000; color: #fff; border: 4px solid #ff0000; padding: 20px; margin: 30px 0; box-shadow: 8px 8px 0px #555;">
         <h4 style="margin: 0 0 15px 0; font-size: 18px; color: #ff0000; font-weight: bold; text-align: center;">*** SYSTEM WARNING ***</h4>
