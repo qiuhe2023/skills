@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude Code 全实操指南：程序员如何把它变成「第二个你」</title>
+</head>
+
+<body style="margin: 0; padding: 0; background-color: #fff; font-family: 'Arial Black', 'Helvetica Neue', sans-serif;">
+
+    <!-- 主内容容器 -->
+    <section style="max-width: 600px; margin: 0 auto; box-sizing: border-box; color: #000; line-height: 1.5; padding: 40px 15px;">
+
+        <!-- 一、文章标题 -->
+        <section style="margin-bottom: 5px;">
+            <div style="background: #00ff00; border: 4px solid #000; padding: 15px 20px; box-shadow: 10px 10px 0px #000; display: inline-block;">
+                <h1 style="font-size: 28px; font-weight: 900; margin: 0; text-transform: uppercase; line-height: 1.2;">
+                    Claude Code 全实操指南
+                </h1>
+            </div>
+        </section>
+
+        <!-- 二、文章简介 -->
+        <section style="border: 4px solid #000; background: #fff; padding: 20px; margin-bottom: 5px; box-shadow: 8px 8px 0px #ff00ff;">
+            <p style="margin: 0; font-size: 16px; font-weight: bold; color: #000;">
+                不少人已经在用 Claude 写代码，但<span style="background: #ffff00; border: 2px solid #000; padding: 0 4px;">真正把 Claude Code 当成开发搭子的人还不多</span>。这篇文章不讲玄学，只讲：怎么装、怎么配、怎么用，才能真省时间。
+            </p>
+        </section>
+
+        <!-- 三、封面图 -->
+        <section style="margin-bottom: 5px; position: relative; padding: 10px;">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: -1; transform: translate(10px, 10px);"></div>
+            <div style="border: 5px solid #000; background: #fff; line-height: 0;">
+                <img src="cover_task_01KH1AYB2DVP29KDXR7R3RQ3V0.jpg" style="width: 100% !important; height: auto !important; display: block;" alt="封面图">
+            </div>
+        </section>
+
+        <!-- 四、正文内容 -->
+
+        <!-- 一、Claude Code 核心介绍 -->
+        <section style="margin-bottom: 5px;">
+            <h2 style="font-size: 20px; font-weight: 800; background: #000; color: #fff; padding: 5px 20px; display: inline-block; transform: skewX(-10deg); margin-bottom: 5px;">
+                一、Claude Code 核心介绍
+            </h2>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <h3 style="font-size: 18px; font-weight: 800; background: #00ff00; border: 3px solid #000; padding: 8px 15px; display: inline-block; margin-bottom: 5px;">
+                核心定位
+            </h3>
+            <p style="margin: 0 0 20px 0; font-size: 15px; font-weight: bold; color: #000;">
+                Claude Code 是 Anthropic 推出的命令行级 AI 编程助手，不是聊天工具，而是嵌入你开发流程里的"协作开发者"。
+            </p>
+            <p style="margin: 0; font-size: 14px; font-weight: bold; color: #666;">
+                它的目标不是替你写 Demo，而是参与真实工程：
+            </p>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <div style="margin-bottom: 12px;">
+                <span style="display: inline-block; width: 20px; height: 20px; background: #000; color: #fff; text-align: center; line-height: 20px; font-weight: 900; margin-right: 12px; font-size: 12px; vertical-align: middle;">●</span>
+                <span style="display: inline-block; font-size: 15px; font-weight: bold; vertical-align: middle;">理解代码结构</span>
+            </div>
+            <div style="margin-bottom: 12px;">
+                <span style="display: inline-block; width: 20px; height: 20px; background: #000; color: #fff; text-align: center; line-height: 20px; font-weight: 900; margin-right: 12px; font-size: 12px; vertical-align: middle;">●</span>
+                <span style="display: inline-block; font-size: 15px; font-weight: bold; vertical-align: middle;">操作文件</span>
+            </div>
+            <div style="margin-bottom: 12px;">
+                <span style="display: inline-block; width: 20px; height: 20px; background: #000; color: #fff; text-align: center; line-height: 20px; font-weight: 900; margin-right: 12px; font-size: 12px; vertical-align: middle;">●</span>
+                <span style="display: inline-block; font-size: 15px; font-weight: bold; vertical-align: middle;">调用工具</span>
+            </div>
+            <div style="">
+                <span style="display: inline-block; width: 20px; height: 20px; background: #000; color: #fff; text-align: center; line-height: 20px; font-weight: 900; margin-right: 12px; font-size: 12px; vertical-align: middle;">●</span>
+                <span style="display: inline-block; font-size: 15px; font-weight: bold; vertical-align: middle;">执行复杂任务链</span>
+            </div>
+        </section>
+
+        <!-- 配图 1 -->
+        <section style="margin-bottom: 5px; position: relative; padding: 10px;">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #00ff00; z-index: -1; transform: translate(8px, 8px);"></div>
+            <div style="border: 4px solid #000; background: #fff; line-height: 0;">
+                <img src="content_01_task_01KH1BNES1X27D15ZBBYJP7ABA.jpg" style="width: 100% !important; height: auto !important; display: block;" alt="Claude Code 核心概念">
+            </div>
+            <div style="background: #000; color: #fff; font-size: 12px; padding: 8px; font-weight: 900; letter-spacing: 1px; margin-top: 10px;">
+                CLAUDE_CODE = AI_DEVELOPER // 001
+            </div>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <h3 style="font-size: 18px; font-weight: 800; background: #ff00ff; border: 3px solid #000; padding: 8px 15px; display: inline-block; margin-bottom: 5px;">
+                核心优势
+            </h3>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <div style="margin-bottom: 12px;">
+                <span style="display: inline-block; width: 20px; height: 20px; background: #ff00ff; color: #fff; text-align: center; line-height: 20px; font-weight: 900; margin-right: 12px; font-size: 12px; vertical-align: middle;">→</span>
+                <span style="display: inline-block; font-size: 15px; font-weight: bold; vertical-align: middle;"><span style="background: #ffff00; border: 2px solid #000; padding: 0 4px;">原生 CLI 体验</span>：贴合程序员习惯</span>
+            </div>
+            <div style="margin-bottom: 12px;">
+                <span style="display: inline-block; width: 20px; height: 20px; background: #ff00ff; color: #fff; text-align: center; line-height: 20px; font-weight: 900; margin-right: 12px; font-size: 12px; vertical-align: middle;">→</span>
+                <span style="display: inline-block; font-size: 15px; font-weight: bold; vertical-align: middle;"><span style="background: #ffff00; border: 2px solid #000; padding: 0 4px;">上下文感知强</span>：能读整个项目</span>
+            </div>
+            <div style="margin-bottom: 12px;">
+                <span style="display: inline-block; width: 20px; height: 20px; background: #ff00ff; color: #fff; text-align: center; line-height: 20px; font-weight: 900; margin-right: 12px; font-size: 12px; vertical-align: middle;">→→</span>
+                <span style="display: inline-block; font-size: 15px; font-weight: bold; vertical-align: middle;"><span style="background: #ffff00; border: 2px solid #000; padding: 0 4px;">支持 MCP / Agent / Skill</span>：高度可扩展</span>
+            </div>
+            <div style="">
+                <span style="display: inline-block; width: 20px; height: 20px; background: #ff00ff; color: #fff; text-align: center; line-height: 20px; font-weight: 900; margin-right: 12px; font-size: 12px; vertical-align: middle;">→</span>
+                <span style="display: inline-block; font-size: 15px; font-weight: bold; vertical-align: middle;"><span style="background: #ffff00; border: 2px solid #000; padding: 0 4px;">适合长期工程协作</span>，不是一次性问答</span>
+            </div>
+        </section>
+
+        <section style="border: 4px solid #000; background: #00ff00; padding: 20px; margin-bottom: 5px; box-shadow: 8px 8px 0px #000;">
+            <p style="margin: 0; font-size: 16px; font-weight: 900; color: #000; text-align: center;">
+                Claude Code = 能进你项目目录、懂你代码上下文、可持续协作的 AI 程序员。
+            </p>
+        </section>
+
+        <!-- 二、核心使用场景 -->
+        <section style="margin-bottom: 5px;">
+            <h2 style="font-size: 20px; font-weight: 800; background: #000; color: #fff; padding: 5px 20px; display: inline-block; transform: skewX(-10deg); margin-bottom: 5px;">
+                二、核心使用场景（程序员高频）
+            </h2>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <div style="background: #fff; border: 4px solid #000; padding: 20px; box-shadow: 6px 6px 0px #00ff00; margin-bottom: 5px;">
+                <p style="margin: 0; font-size: 14px; font-weight: 900; background: #000; color: #fff; display: inline-block; padding: 5px 10px; margin-bottom: 5px;">1️⃣ 单兵开发场景</p>
+                <p style="margin: 10px 0 0 0; font-size: 14px; font-weight: bold;">适合独立开发者或个人项目</p>
+            </div>
+            <section style="margin-bottom: 5px;">
+                <div style="margin-bottom: 8px;">
+                    <span style="display: inline-block; width: 15px; height: 15px; background: #000; color: #fff; text-align: center; line-height: 15px; font-weight: 900; margin-right: 10px; font-size: 10px; vertical-align: middle;">●</span>
+                    <span style="display: inline-block; font-size: 14px; font-weight: bold; vertical-align: middle;">快速理解陌生代码库</span>
+                </div>
+                <div style="margin-bottom: 8px;">
+                    <span style="display: inline-block; width: 15px; height: 15px; background: #000; color: #fff; text-align: center; line-height: 15px; font-weight: 900; margin-right: 10px; font-size: 10px; vertical-align: middle;">●</span>
+                    <span style="display: inline-block; font-size: 14px; font-weight: bold; vertical-align: middle;">新功能原型生成</span>
+                </div>
+                <div style="margin-bottom: 8px;">
+                    <span style="display: inline-block; width: 15px; height: 15px; background: #000; color: #fff; text-align: center; line-height: 15px; font-weight: 900; margin-right: 10px; font-size: 10px; vertical-align: middle;">●</span>
+                    <span style="display: inline-block; font-size: 14px; font-weight: bold; vertical-align: middle;">自动补测试用例</span>
+                </div>
+                <div style="">
+                    <span style="display: inline-block; width: 15px; height: 15px; background: #000; color: #fff; text-align: center; line-height: 15px; font-weight: 900; margin-right: 10px; font-size: 10px; vertical-align: middle;">●</span>
+                    <span style="display: inline-block; font-size: 14px; font-weight: bold; vertical-align: middle;">TODO 扫描 &amp; 技术债整理</span>
+                </div>
+            </section>
+        </section>
+
+        <section style="border: 4px solid #000; background: #ff00ff; padding: 20px; margin-bottom: 5px; box-shadow: 8px 8px 0px #000;">
+            <p style="margin: 0; font-size: 16px; font-weight: 900; color: #000;">
+                👉 本质：<span style="background: #ffff00; border: 2px solid #000; padding: 0 4px;">减少上下文切换，减少"查 + 想 + 写"时间</span>
+            </p>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <div style="background: #000; color: #fff; border: 4px solid #000; padding: 20px; box-shadow: 6px 6px 0px #ff00ff; margin-bottom: 5px;">
+                <p style="margin: 0; font-size: 14px; font-weight: 900; display: inline-block; padding: 0;">2️⃣ 团队协作场景</p>
+                <p style="margin: 10px 0 0 0; font-size: 14px; font-weight: bold;">适合中小团队 / 初创团队</p>
+            </div>
+            <section style="margin-bottom: 5px;">
+                <div style="margin-bottom: 8px;">
+                    <span style="display: inline-block; width: 15px; height: 15px; background: #fff; color: #000; text-align: center; line-height: 15px; font-weight: 900; margin-right: 10px; font-size: 10px; vertical-align: middle;">●</span>
+                    <span style="display: inline-block; font-size: 14px; font-weight: bold; vertical-align: middle;">统一代码规范检查</span>
+                </div>
+                <div style="margin-bottom: 8px;">
+                    <span style="display: inline-block; width: 15px; height: 15px; background: #fff; color: #000; text-align: center; line-height: 15px; font-weight: 900; margin-right: 10px; font-size: 10px; vertical-align: middle;">●</span>
+                    <span style="display: inline-block; font-size: 14px; font-weight: bold; vertical-align: middle;">PR 初审（结构 / 风格 / 风险）</span>
+                </div>
+                <div style="margin-bottom: 8px;">
+                    <span style="display: inline-block; width: 15px; height: 15px; background: #fff; color: #000; text-align: center; line-height: 15px; font-weight: 900; margin-right: 10px; font-size: 10px; vertical-align: middle;">●</span>
+                    <span style="display: inline-block; font-size: 14px; font-weight: bold; vertical-align: middle;">新成员快速上手项目</span>
+                </div>
+                <div style="">
+                    <span style="display: inline-block; width: 15px; height: 15px; background: #fff; color: #000; text-align: center; line-height: 15px; font-weight: 900; margin-right: 10px; font-size: 10px; vertical-align: middle;">●</span>
+                    <span style="display: inline-block; font-size: 14px; font-weight: bold; vertical-align: middle;">文档自动补齐</span>
+                </div>
+            </section>
+        </section>
+
+        <section style="border: 4px solid #000; background: #00ff00; padding: 20px; margin-bottom: 5px; box-shadow: 8px 8px 0px #000;">
+            <p style="margin: 0; font-size: 16px; font-weight: 900; color: #000;">
+                👉 Claude Code 可以当<span style="background: #ffff00; border: 2px solid #000; padding: 0 4px;">"团队最有耐心的 reviewer"</span>
+            </p>
+        </section>
+
+        <!-- 配图 2 -->
+        <section style="margin-bottom: 5px; position: relative; padding: 10px;">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #ff00ff; z-index: -1; transform: translate(8px, 8px);"></div>
+            <div style="border: 4px solid #000; background: #fff; line-height: 0;">
+                <img src="content_02_task_01KH1CTH9QFAAE21N6N8T1958E.jpg" style="width: 100% !important; height: auto !important; display: block;" alt="核心使用场景">
+            </div>
+            <div style="background: #000; color: #fff; font-size: 12px; padding: 8px; font-weight: 900; letter-spacing: 1px; margin-top: 10px;">
+                USE_CASES // 002
+            </div>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <div style="background: #fff; border: 4px solid #000; padding: 20px; box-shadow: 6px 6px 0px #ff00ff;">
+                <p style="margin: 0; font-size: 14px; font-weight: 900; background: #000; color: #fff; display: inline-block; padding: 5px 10px; margin-bottom: 5px;">3️⃣ 专项任务场景</p>
+                <p style="margin: 10px 0 0 0; font-size: 14px; font-weight: bold;">非常适合这些事</p>
+            </div>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <div style="">
+                <span style="display: inline-block; background: #000; color: #fff; padding: 8px 15px; font-weight: 900; font-size: 14px; margin-right: 10px; vertical-align: middle;">代码审查</span>
+                <span style="display: inline-block; background: #00ff00; border: 2px solid #000; padding: 8px 15px; font-weight: 900; font-size: 14px; margin-right: 10px; vertical-align: middle;">老代码重构</span>
+                <span style="display: inline-block; background: #ff00ff; padding: 8px 15px; font-weight: 900; font-size: 14px; border: 2px solid #000; margin-right: 10px; vertical-align: middle;">复杂逻辑解释</span>
+                <span style="display: inline-block; background: #fff; border: 2px solid #000; padding: 8px 15px; font-weight: 900; font-size: 14px; margin-right: 10px; vertical-align: middle;">Bug 根因分析</span>
+                <span style="display: inline-block; background: #000; color: #fff; padding: 8px 15px; font-weight: 900; font-size: 14px; vertical-align: middle;">技术方案对比</span>
+            </div>
+        </section>
+
+        <section style="border: 4px solid #000; background: #ff00ff; padding: 20px; margin-bottom: 5px; box-shadow: 8px 8px 0px #000;">
+            <p style="margin: 0; font-size: 16px; font-weight: 900; color: #000;">
+                👉 特点：<span style="background: #ffff00; border: 2px solid #000; padding: 0 4px;">一次配置，多次复用</span>
+            </p>
+        </section>
+
+        <!-- 三、快速安装 -->
+        <section style="margin-bottom: 5px;">
+            <h2 style="font-size: 20px; font-weight: 800; background: #000; color: #fff; padding: 5px 20px; display: inline-block; transform: skewX(-10deg); margin-bottom: 5px;">
+                三、快速安装
+            </h2>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <h3 style="font-size: 18px; font-weight: 800; background: #00ff00; border: 3px solid #000; padding: 8px 15px; display: inline-block; margin-bottom: 5px;">
+                前置准备
+            </h3>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <div style="margin-bottom: 8px;">
+                <span style="display: inline-block; width: 15px; height: 15px; background: #000; color: #fff; text-align: center; line-height: 15px; font-weight: 900; margin-right: 10px; font-size: 10px; vertical-align: middle;">●</span>
+                <span style="display: inline-block; font-size: 14px; font-weight: bold; vertical-align: middle;">macOS / Linux（Windows 建议 WSL）</span>
+            </div>
+            <div style="margin-bottom: 8px;">
+                <span style="display: inline-block; width: 15px; height: 15px; background: #000; color: #fff; text-align: center; line-height: 15px; font-weight: 900; margin-right: 10px; font-size: 10px; vertical-align: middle;">●</span>
+                <span style="display: inline-block; font-size: 14px; font-weight: bold; vertical-align: middle;">Node.js ≥ 18</span>
+            </div>
+            <div style="">
+                <span style="display: inline-block; width: 15px; height: 15px; background: #000; color: #fff; text-align: center; line-height: 15px; font-weight: 900; margin-right: 10px; font-size: 10px; vertical-align: middle;">●</span>
+                <span style="display: inline-block; font-size: 14px; font-weight: bold; vertical-align: middle;">已有 Anthropic API Key</span>
+            </div>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <h3 style="font-size: 18px; font-weight: 800; background: #ff00ff; border: 3px solid #000; padding: 8px 15px; display: inline-block; margin-bottom: 5px;">
+                核心安装命令
+            </h3>
+        </section>
+
+        <section style="border: 4px solid #000; background: #000; color: #00ff00; padding: 20px; margin-bottom: 5px; box-shadow: 8px 8px 0px #ff00ff;">
+            <p style="margin: 0; font-size: 15px; font-family: monospace; font-weight: bold; line-height: 1.6;">
+                npm install -g @anthropic-ai/claude-code
+            </p>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <h3 style="font-size: 18px; font-weight: 800; background: #00ff00; border: 3px solid #000; padding: 8px 15px; display: inline-block; margin-bottom: 5px;">
+                验证安装
+            </h3>
+        </section>
+
+        <section style="border: 4px solid #000; background: #000; color: #00ff00; padding: 20px; margin-bottom: 5px; box-shadow: 8px 8px 0px #ff00ff;">
+            <p style="margin: 0; font-size: 15px; font-family: monospace; font-weight: bold;">
+                claude --version
+            </p>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <p style="margin: 0; font-size: 15px; font-weight: bold; color: #000;">
+                能看到版本号，说明安装成功。
+            </p>
+        </section>
+
+        <!-- 配图 3 -->
+        <section style="margin-bottom: 5px; position: relative; padding: 10px;">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: -1; transform: translate(8px, 8px);"></div>
+            <div style="border: 4px solid #000; background: #fff; line-height: 0;">
+                <img src="content_03_task_01KH1BD79QM185GR1QAENP51P4.jpg" style="width: 100% !important; height: auto !important; display: block;" alt="快速安装流程">
+            </div>
+            <div style="background: #00ff00; color: #000; font-size: 12px; padding: 8px; font-weight: 900; letter-spacing: 1px; margin-top: 10px;">
+                INSTALLATION_COMPLETE // 003
+            </div>
+        </section>
+
+        <!-- 四、添加模型 -->
+        <section style="margin-bottom: 5px;">
+            <h2 style="font-size: 20px; font-weight: 800; background: #000; color: #fff; padding: 5px 20px; display: inline-block; transform: skewX(-10deg); margin-bottom: 5px;">
+                四、添加模型
+            </h2>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <h3 style="font-size: 18px; font-weight: 800; background: #00ff00; border: 3px solid #000; padding: 8px 15px; display: inline-block; margin-bottom: 5px;">
+                支持类型
+            </h3>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <div style="margin-bottom: 8px;">
+                <span style="display: inline-block; width: 15px; height: 15px; background: #000; color: #fff; text-align: center; line-height: 15px; font-weight: 900; margin-right: 10px; font-size: 10px; vertical-align: middle;">●</span>
+                <span style="display: inline-block; font-size: 14px; font-weight: bold; vertical-align: middle;">Claude 3 Opus</span>
+            </div>
+            <div style="margin-bottom: 8px;">
+                <span style="display: inline-block; width: 15px; height: 15px; background: #00ff00; color: #000; text-align: center; line-height: 15px; font-weight: 900; margin-right: 10px; font-size: 10px; border: 2px solid #000; vertical-align: middle;">★</span>
+                <span style="display: inline-block; font-size: 14px; font-weight: bold; vertical-align: middle;"><span style="background: #ffff00; border: 2px solid #000; padding: 0 4px;">Claude 3.5 Sonnet（推荐）</span></span>
+            </div>
+            <div style="">
+                <span style="display: inline-block; width: 15px; height: 15px; background: #000; color: #fff; text-align: center; line-height: 15px; font-weight: 900; margin-right: 10px; font-size: 10px; vertical-align: middle;">●</span>
+                <span style="display: inline-block; font-size: 14px; font-weight: bold; vertical-align: middle;">Claude 3 Haiku（轻量）</span>
+            </div>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <h3 style="font-size: 18px; font-weight: 800; background: #ff00ff; border: 3px solid #000; padding: 8px 15px; display: inline-block; margin-bottom: 5px;">
+                核心方法
+            </h3>
+        </section>
+
+        <section style="border: 4px solid #000; background: #fff; padding: 20px; margin-bottom: 5px; box-shadow: 6px 6px 0px #000;">
+            <p style="margin: 0 0 10px 0; font-size: 14px; font-weight: bold; color: #000;">在配置文件中指定默认模型：</p>
+            <p style="margin: 0; font-size: 15px; font-family: monospace; font-weight: bold; color: #000;">
+                claude config set model claude-3-5-sonnet
+            </p>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <h3 style="font-size: 18px; font-weight: 800; background: #00ff00; border: 3px solid #000; padding: 8px 15px; display: inline-block; margin-bottom: 5px;">
+                快捷切换
+            </h3>
+        </section>
+
+        <section style="border: 4px solid #000; background: #000; color: #00ff00; padding: 20px; margin-bottom: 5px; box-shadow: 8px 8px 0px #ff00ff;">
+            <p style="margin: 0; font-size: 15px; font-family: monospace; font-weight: bold;">
+                claude --model claude-3-opus
+            </p>
+        </section>
+        <section style="margin-bottom: 5px;">
+            <p style="margin: 0; font-size: 14px; font-weight: bold;">适合高难度重构 / 设计任务。</p>
+        </section>
+
+        <section style="border: 4px solid #000; background: #ff00ff; padding: 20px; margin-bottom: 5px; box-shadow: 8px 8px 0px #000;">
+            <p style="margin: 0; font-size: 14px; font-weight: bold; color: #000;">
+                ⚠️ 注意：不同模型<span style="background: #ffff00; border: 2px solid #000; padding: 0 4px;">成本差异很大</span>。长上下文任务优先 Sonnet / Opus，日常辅助 Haiku 就够。
+            </p>
+        </section>
+
+        <!-- 五、切换外部模型 -->
+        <section style="margin-bottom: 5px;">
+            <h2 style="font-size: 20px; font-weight: 800; background: #000; color: #fff; padding: 5px 20px; display: inline-block; transform: skewX(-10deg); margin-bottom: 5px;">
+                五、切换外部模型（Volcengine Ark Coding Plan）
+            </h2>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <h3 style="font-size: 18px; font-weight: 800; background: #00ff00; border: 3px solid #000; padding: 8px 15px; display: inline-block; margin-bottom: 5px;">
+                核心定位
+            </h3>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <p style="margin: 0; font-size: 15px; font-weight: bold; color: #000;">
+                通过 Volcengine 方舟 Coding Plan 套餐，Claude Code 可以接入更多外部大模型，包括 doubao-seed-code、glm-4.7、deepseek-v3.2 等，扩展编程能力边界。
+            </p>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <h3 style="font-size: 18px; font-weight: 800; background: #ff00ff; border: 3px solid #000; padding: 8px 15px; display: inline-block; margin-bottom: 5px;">
+                前置准备
+            </h3>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <div style="margin-bottom: 8px;">
+                <span style="display: inline-block; width: 15px; height: 15px; background: #000; color: #fff; text-align: center; line-height: 15px; font-weight: 900; margin-right: 10px; font-size: 10px; vertical-align: middle;">1</span>
+                <span style="display: inline-block; font-size: 14px; font-weight: bold; vertical-align: middle;">订阅方舟 Coding Plan 套餐</span>
+            </div>
+            <div style="">
+                <span style="display: inline-block; width: 15px; height: 15px; background: #000; color: #fff; text-align: center; line-height: 15px; font-weight: 900; margin-right: 10px; font-size: 10px; vertical-align: middle;">2</span>
+                <span style="display: inline-block; font-size: 14px; font-weight: bold; vertical-align: middle;">获取 Volcengine Ark API Key</span>
+            </div>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <h3 style="font-size: 18px; font-weight: 800; background: #00ff00; border: 3px solid #000; padding: 8px 15px; display: inline-block; margin-bottom: 5px;">
+                核心配置
+            </h3>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <h4 style="font-size: 16px; font-weight: 800; background: #000; color: #fff; padding: 5px 15px; display: inline-block; margin-bottom: 5px;">
+                模型配置
+            </h4>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <p style="margin: 0; font-size: 14px; font-weight: bold; color: #000;">配置时 Model Name 需使用小写格式，支持以下值：</p>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <div style="">
+                <div style="background: #000; color: #fff; padding: 8px 12px; font-weight: 900; font-size: 13px;">doubao-seed-code</div>
+                <div style="background: #00ff00; border: 2px solid #000; padding: 8px 12px; font-weight: 900; font-size: 13px;">glm-4.7</div>
+                <div style="background: #ff00ff; padding: 8px 12px; font-weight: 900; font-size: 13px; border: 2px solid #000;">deepseek-v3.2</div>
+                <div style="background: #fff; border: 2px solid #000; padding: 8px 12px; font-weight: 900; font-size: 13px;">kimi-k2-thinking</div>
+                <div style="background: #000; color: #fff; padding: 8px 12px; font-weight: 900; font-size: 13px;">kimi-k2.5</div>
+            </div>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <h4 style="font-size: 16px; font-weight: 800; background: #000; color: #fff; padding: 5px 15px; display: inline-block; margin-bottom: 5px;">
+                Base URL
+            </h4>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <p style="margin: 0; font-size: 14px; font-weight: bold; color: #000;">根据兼容协议选择对应 Base URL：</p>
+        </section>
+
+        <section style="border: 4px solid #000; background: #fff; padding: 20px; margin-bottom: 5px; box-shadow: 6px 6px 0px #00ff00;">
+            <p style="margin: 0 0 10px 0; font-size: 14px; font-weight: bold; color: #000;">兼容 Anthropic 接口：</p>
+            <p style="margin: 0 0 15px 0; font-size: 13px; font-family: monospace; font-weight: bold; color: #000; background: #ffff00; padding: 5px;">https://ark.cn-beijing.volces.com/api/coding</p>
+            <p style="margin: 0 0 10px 0; font-size: 14px; font-weight: bold; color: #000;">兼容 OpenAI 接口：</p>
+            <p style="margin: 0; font-size: 13px; font-family: monospace; font-weight: bold; color: #000;">https://ark.cn-beijing.volces.com/api/coding/v3</p>
+        </section>
+
+        <section style="border: 4px solid #000; background: #ff00ff; padding: 20px; margin-bottom: 5px; box-shadow: 8px 8px 0px #000;">
+            <p style="margin: 0; font-size: 14px; font-weight: bold; color: #000;">
+                ⚠️ 注意：请勿使用 <span style="background: #000; color: #fff; padding: 2px 5px; font-family: monospace;">https://ark.cn-beijing.volces.com/api/v3</span>，该地址不会消耗 Coding Plan 额度，会产生额外费用。
+            </p>
+        </section>
+
+        <!-- 六、增加 MCP -->
+        <section style="margin-bottom: 5px;">
+            <h2 style="font-size: 20px; font-weight: 800; background: #000; color: #fff; padding: 5px 20px; display: inline-block; transform: skewX(-10deg); margin-bottom: 5px;">
+                六、增加 MCP
+            </h2>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <h3 style="font-size: 18px; font-weight: 800; background: #00ff00; border: 3px solid #000; padding: 8px 15px; display: inline-block; margin-bottom: 5px;">
+                MCP 定位
+            </h3>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <p style="margin: 0; font-size: 15px; font-weight: bold; color: #000;">
+                MCP（Model Context Protocol）是 Claude Code 的<span style="background: #ffff00; border: 2px solid #000; padding: 0 4px;">"外接能力接口"</span>。
+            </p>
+        </section>
+
+        <section style="border: 4px solid #000; background: #00ff00; padding: 20px; margin-bottom: 5px; box-shadow: 8px 8px 0px #000;">
+            <p style="margin: 0; font-size: 16px; font-weight: 900; color: #000;">
+                一句话理解：<br><br>
+                > 让 Claude 不只"想"，还能"查"和"连"。
+            </p>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <h3 style="font-size: 18px; font-weight: 800; background: #ff00ff; border: 3px solid #000; padding: 8px 15px; display: inline-block; margin-bottom: 5px;">
+                常用连接方式
+            </h3>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <div style="margin-bottom: 8px;">
+                <span style="display: inline-block; width: 15px; height: 15px; background: #000; color: #fff; text-align: center; line-height: 15px; font-weight: 900; margin-right: 10px; font-size: 10px; vertical-align: middle;">●</span>
+                <span style="display: inline-block; font-size: 14px; font-weight: bold; vertical-align: middle;">本地文件系统</span>
+            </div>
+            <div style="margin-bottom: 8px;">
+                <span style="display: inline-block; width: 15px; height: 15px; background: #000; color: #fff; text-align: center; line-height: 15px; font-weight: 900; margin-right: 10px; font-size: 10px; vertical-align: middle;">●</span>
+                <span style="display: inline-block; font-size: 14px; font-weight: bold; vertical-align: middle;">Git 仓库</span>
+            </div>
+            <div style="margin-bottom: 8px;">
+                <span style="display: inline-block; width: 15px; height: 15px; background: #000; color: #fff; text-align: center; line-height: 15px; font-weight: 900; margin-right: 10px; font-size: 10px; vertical-align: middle;">●</span>
+                <span style="display: inline-block; font-size: 14px; font-weight: bold; vertical-align: middle;">数据库</span>
+            </div>
+            <div style="margin-bottom: 8px;">
+                <span style="display: inline-block; width: 15px; height: 15px; background: #000; color: #fff; text-align: center; line-height: 15px; font-weight: 900; margin-right: 10px; font-size: 10px; vertical-align: middle;">●</span>
+                <span style="display: inline-block; font-size: 14px; font-weight: bold; vertical-align: middle;">内部 API</span>
+            </div>
+            <div style="">
+                <span style="display: inline-block; width: 15px; height: 15px; background: #000; color: #fff; text-align: center; line-height: 15px; font-weight: 900; margin-right: 10px; font-size: 10px; vertical-align: middle;">●</span>
+                <span style="display: inline-block; font-size: 14px; font-weight: bold; vertical-align: middle;">第三方工具</span>
+            </div>
+        </section>
+
+        <!-- 配图 4 -->
+        <section style="margin-bottom: 5px; position: relative; padding: 10px;">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #00ff00; z-index: -1; transform: translate(8px, 8px);"></div>
+            <div style="border: 4px solid #000; background: #fff; line-height: 0;">
+                <img src="content_04_task_01KH1CZ6NBMYFZVQ4HX7C71RS9.jpg" style="width: 100% !important; height: auto !important; display: block;" alt="MCP 连接概念">
+            </div>
+            <div style="background: #ff00ff; color: #000; font-size: 12px; padding: 8px; font-weight: 900; letter-spacing: 1px; margin-top: 10px;">
+                MCP_CONNECTIONS // 004
+            </div>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <h3 style="font-size: 18px; font-weight: 800; background: #00ff00; border: 3px solid #000; padding: 8px 15px; display: inline-block; margin-bottom: 5px;">
+                验证配置
+            </h3>
+        </section>
+
+        <section style="border: 4px solid #000; background: #000; color: #00ff00; padding: 20px; margin-bottom: 5px; box-shadow: 8px 8px 0px #ff00ff;">
+            <p style="margin: 0; font-size: 15px; font-family: monospace; font-weight: bold;">
+                claude mcp list
+            </p>
+        </section>
+        <section style="margin-bottom: 5px;">
+            <p style="margin: 0; font-size: 14px; font-weight: bold;">能看到已连接的 MCP 即成功。</p>
+        </section>
+
+        <!-- 七、创建 Agent -->
+        <section style="margin-bottom: 5px;">
+            <h2 style="font-size: 20px; font-weight: 800; background: #000; color: #fff; padding: 5px 20px; display: inline-block; transform: skewX(-10deg); margin-bottom: 5px;">
+                七、创建 Agent
+            </h2>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <h3 style="font-size: 18px; font-weight: 800; background: #ff00ff; border: 3px solid #000; padding: 8px 15px; display: inline-block; margin-bottom: 5px;">
+                Agent 定位
+            </h3>
+        </section>
+
+        <section style="border: 4px solid #000; background: #00ff00; padding: 20px; margin-bottom: 5px; box-shadow: 8px 8px 0px #000;">
+            <p style="margin: 0; font-size: 16px; font-weight: 900; color: #000;">
+                Agent = 长期存在的"角色型 AI"，不是一次性指令。
+            </p>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <p style="margin: 0; font-size: 14px; font-weight: bold; color: #000;">例如：</p>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <div style="">
+                <div style="background: #000; color: #fff; padding: 8px 15px; font-weight: 900; font-size: 14px;">代码审查 Agent</div>
+                <div style="background: #00ff00; border: 2px solid #000; padding: 8px 15px; font-weight: 900; font-size: 14px;">架构设计 Agent</div>
+                <div style="background: #ff00ff; padding: 8px 15px; font-weight: 900; font-size: 14px; border: 2px solid #000;">测试生成 Agent</div>
+            </div>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <h3 style="font-size: 18px; font-weight: 800; background: #00ff00; border: 3px solid #000; padding: 8px 15px; display: inline-block; margin-bottom: 5px;">
+                创建方式
+            </h3>
+        </section>
+
+        <section style="border: 4px solid #000; background: #000; color: #00ff00; padding: 20px; margin-bottom: 5px; box-shadow: 8px 8px 0px #ff00ff;">
+            <p style="margin: 0; font-size: 15px; font-family: monospace; font-weight: bold;">
+                claude agent create code-reviewer
+            </p>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <h3 style="font-size: 18px; font-weight: 800; background: #ff00ff; border: 3px solid #000; padding: 8px 15px; display: inline-block; margin-bottom: 5px;">
+                实用技巧
+            </h3>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <div style="margin-bottom: 8px;">
+                <span style="display: inline-block; width: 15px; height: 15px; background: #000; color: #fff; text-align: center; line-height: 15px; font-weight: 900; margin-right: 10px; font-size: 10px; vertical-align: middle;">●</span>
+                <span style="display: inline-block; font-size: 14px; font-weight: bold; vertical-align: middle;">一个 Agent 只做一件事</span>
+            </div>
+            <div style="margin-bottom: 8px;">
+                <span style="display: inline-block; width: 15px; height: 15px; background: #000; color: #fff; text-align: center; line-height: 15px; font-weight: 900; margin-right: 10px; font-size: 10px; vertical-align: middle;">●</span>
+                <span style="display: inline-block; font-size: 14px; font-weight: bold; vertical-align: middle;">给 Agent 明确边界</span>
+            </div>
+            <div style="">
+                <span style="display: inline-block; width: 15px; height: 15px; background: #000; color: #fff; text-align: center; line-height: 15px; font-weight: 900; margin-right: 10px; font-size: 10px; vertical-align: middle;">●</span>
+                <span style="display: inline-block; font-size: 14px; font-weight: bold; vertical-align: middle;">固化风格 &amp; 输出模板</span>
+            </div>
+        </section>
+
+        <!-- 八、创建 Skill -->
+        <section style="margin-bottom: 5px;">
+            <h2 style="font-size: 20px; font-weight: 800; background: #000; color: #fff; padding: 5px 20px; display: inline-block; transform: skewX(-10deg); margin-bottom: 5px;">
+                八、创建 Skill
+            </h2>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <h3 style="font-size: 18px; font-weight: 800; background: #00ff00; border: 3px solid #000; padding: 8px 15px; display: inline-block; margin-bottom: 5px;">
+                Skill 定位
+            </h3>
+        </section>
+
+        <section style="border: 4px solid #000; background: #ff00ff; padding: 20px; margin-bottom: 5px; box-shadow: 8px 8px 0px #000;">
+            <p style="margin: 0; font-size: 16px; font-weight: 900; color: #000;">
+                Skill = 可复用的小能力，更轻量。<br>
+                Agent 偏"人"，Skill 偏"工具"。
+            </p>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <h3 style="font-size: 18px; font-weight: 800; background: #ff00ff; border: 3px solid #000; padding: 8px 15px; display: inline-block; margin-bottom: 5px;">
+                新手入门
+            </h3>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <p style="margin: 0; font-size: 14px; font-weight: bold; color: #000;">从简单 Skill 开始，例如：</p>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <div style="">
+                <div style="background: #000; color: #fff; padding: 8px 15px; font-weight: 900; font-size: 14px;">生成 commit message</div>
+                <div style="background: #00ff00; border: 2px solid #000; padding: 8px 15px; font-weight: 900; font-size: 14px;">补单元测试</div>
+                <div style="background: #ff00ff; padding: 8px 15px; font-weight: 900; font-size: 14px; border: 2px solid #000;">代码注释生成</div>
+            </div>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <h3 style="font-size: 18px; font-weight: 800; background: #00ff00; border: 3px solid #000; padding: 8px 15px; display: inline-block; margin-bottom: 5px;">
+                自定义创建（进阶）
+            </h3>
+        </section>
+
+        <section style="border: 4px solid #000; background: #000; color: #00ff00; padding: 20px; margin-bottom: 5px; box-shadow: 8px 8px 0px #ff00ff;">
+            <p style="margin: 0; font-size: 15px; font-family: monospace; font-weight: bold;">
+                claude skill create gen-tests
+            </p>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <p style="margin: 0; font-size: 14px; font-weight: bold; color: #000;">可绑定：</p>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <div style="margin-bottom: 8px;">
+                <span style="display: inline-block; width: 15px; height: 15px; background: #000; color: #fff; text-align: center; line-height: 15px; font-weight: 900; margin-right: 10px; font-size: 10px; vertical-align: middle;">●</span>
+                <span style="display: inline-block; font-size: 14px; font-weight: bold; vertical-align: middle;">固定 Prompt</span>
+            </div>
+            <div style="margin-bottom: 8px;">
+                <span style="display: inline-block; width: 15px; height: 15px; background: #000; color: #fff; text-align: center; line-height: 15px; font-weight: 900; margin-right: 10px; font-size: 10px; vertical-align: middle;">●</span>
+                <span style="display: inline-block; font-size: 14px; font-weight: bold; vertical-align: middle;">特定输入格式</span>
+            </div>
+            <div style="">
+                <span style="display: inline-block; width: 15px; height: 15px; background: #000; color: #fff; text-align: center; line-height: 15px; font-weight: 900; margin-right: 10px; font-size: 10px; vertical-align: middle;">●</span>
+                <span style="display: inline-block; font-size: 14px; font-weight: bold; vertical-align: middle;">自动触发条件</span>
+            </div>
+        </section>
+
+        <!-- 配图 5 -->
+        <section style="margin-bottom: 5px; position: relative; padding: 10px;">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: -1; transform: translate(8px, 8px);"></div>
+            <div style="border: 4px solid #000; background: #fff; line-height: 0;">
+                <img src="content_05_task_01KH1D1CDA8Q1NETAPE2KRK18C.jpg" style="width: 100% !important; height: auto !important; display: block;" alt="Agent vs Skill">
+            </div>
+            <div style="background: #00ff00; color: #000; font-size: 12px; padding: 8px; font-weight: 900; letter-spacing: 1px; margin-top: 10px;">
+                AGENT_VS_SKILL // 005
+            </div>
+        </section>
+
+        <!-- 九、常用快捷指令 -->
+        <section style="margin-bottom: 5px;">
+            <h2 style="font-size: 20px; font-weight: 800; background: #000; color: #fff; padding: 5px 20px; display: inline-block; transform: skewX(-10deg); margin-bottom: 5px;">
+                九、常用快捷指令（高频）
+            </h2>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <h3 style="font-size: 18px; font-weight: 800; background: #ff00ff; border: 3px solid #000; padding: 8px 15px; display: inline-block; margin-bottom: 5px;">
+                基础操作
+            </h3>
+        </section>
+
+        <section style="border: 4px solid #000; background: #000; color: #00ff00; padding: 20px; margin-bottom: 5px; box-shadow: 6px 6px 0px #ff00ff;">
+            <p style="margin: 0; font-size: 14px; font-family: monospace; font-weight: bold; line-height: 1.8;">
+                claude<br>
+                claude chat<br>
+                claude help
+            </p>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <h3 style="font-size: 18px; font-weight: 800; background: #00ff00; border: 3px solid #000; padding: 8px 15px; display: inline-block; margin-bottom: 5px;">
+                模型 / Agent / MCP 管理
+            </h3>
+        </section>
+
+        <section style="border: 4px solid #000; background: #fff; padding: 20px; margin-bottom: 5px; box-shadow: 6px 6px 0px #000;">
+            <p style="margin: 0; font-size: 14px; font-family: monospace; font-weight: bold; line-height: 1.8;">
+                claude model list<br>
+                claude agent list<br>
+                claude mcp list
+            </p>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <h3 style="font-size: 18px; font-weight: 800; background: #ff00ff; border: 3px solid #000; padding: 8px 15px; display: inline-block; margin-bottom: 5px;">
+                代码相关（最常用）
+            </h3>
+        </section>
+
+        <section style="border: 4px solid #000; background: #00ff00; padding: 20px; margin-bottom: 5px; box-shadow: 8px 8px 0px #000;">
+            <p style="margin: 0; font-size: 14px; font-family: monospace; font-weight: bold; line-height: 1.8;">
+                claude review .<br>
+                claude explain src/main.ts<br>
+                claude refactor services/
+            </p>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <h3 style="font-size: 18px; font-weight: 800; background: #ff00ff; border: 3px solid #000; padding: 8px 15px; display: inline-block; margin-bottom: 5px;">
+                高级启动选项
+            </h3>
+        </section>
+
+        <section style="border: 4px solid #000; background: #000; color: #00ff00; padding: 20px; margin-bottom: 5px; box-shadow: 6px 6px 0px #ff00ff;">
+            <p style="margin: 0; font-size: 14px; font-family: monospace; font-weight: bold; line-height: 1.8;">
+                claude --dangerously-skip-permissions<br>
+                claude --config /path/to/config.json<br>
+                claude --debug<br>
+                claude --quiet<br>
+                claude --cwd /path/to/project
+            </p>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <h3 style="font-size: 18px; font-weight: 800; background: #00ff00; border: 3px solid #000; padding: 8px 15px; display: inline-block; margin-bottom: 5px;">
+                会话内命令（斜杠命令）
+            </h3>
+        </section>
+
+        <section style="border: 4px solid #000; background: #fff; padding: 20px; margin-bottom: 5px; box-shadow: 6px 6px 0px #000;">
+            <div style="margin-bottom: 12px;">
+                <span style="display: inline-block; width: 20px; height: 20px; background: #000; color: #fff; text-align: center; line-height: 20px; font-weight: 900; margin-right: 12px; font-size: 12px;">/</span>
+                <span style="display: inline-block; font-size: 15px; font-weight: bold;">compact <span style="color: #666;">压缩对话上下文</span></span>
+            </div>
+            <div style="margin-bottom: 12px;">
+                <span style="display: inline-block; width: 20px; height: 20px; background: #000; color: #fff; text-align: center; line-height: 20px; font-weight: 900; margin-right: 12px; font-size: 12px;">/</span>
+                <span style="display: inline-block; font-size: 15px; font-weight: bold;">clear <span style="color: #666;">清除对话历史</span></span>
+            </div>
+            <div style="margin-bottom: 12px;">
+                <span style="display: inline-block; width: 20px; height: 20px; background: #000; color: #fff; text-align: center; line-height: 20px; font-weight: 900; margin-right: 12px; font-size: 12px;">/</span>
+                <span style="display: inline-block; font-size: 15px; font-weight: bold;">history <span style="color: #666;">查看历史对话</span></span>
+            </div>
+            <div style="margin-bottom: 12px;">
+                <span style="display: inline-block; width: 20px; height: 20px; background: #000; color: #fff; text-align: center; line-height: 20px; font-weight: 900; margin-right: 12px; font-size: 12px;">/</span>
+                <span style="display: inline-block; font-size: 15px; font-weight: bold;">edit <span style="color: #666;">编辑记忆文件</span></span>
+            </div>
+            <div style="margin-bottom: 12px;">
+                <span style="display: inline-block; width: 20px; height: 20px; background: #000; color: #fff; text-align: center; line-height: 20px; font-weight: 900; margin-right: 12px; font-size: 12px;">/</span>
+                <span style="display: inline-block; font-size: 15px; font-weight: bold;">model <span style="color: #666;">切换AI模型</span></span>
+            </div>
+            <div style="margin-bottom: 12px;">
+                <span style="display: inline-block; width: 20px; height: 20px; background: #000; color: #fff; text-align: center; line-height: 20px; font-weight: 900; margin-right: 12px; font-size: 12px;">/</span>
+                <span style="display: inline-block; font-size: 15px; font-weight: bold;">help <span style="color: #666;">显示帮助</span></span>
+            </div>
+            <div style="">
+                <span style="display: inline-block; width: 20px; height: 20px; background: #000; color: #fff; text-align: center; line-height: 20px; font-weight: 900; margin-right: 12px; font-size: 12px;">/</span>
+                <span style="display: inline-block; font-size: 15px; font-weight: bold;">exit <span style="color: #666;">退出Claude Code</span></span>
+            </div>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <h3 style="font-size: 18px; font-weight: 800; background: #ff00ff; border: 3px solid #000; padding: 8px 15px; display: inline-block; margin-bottom: 5px;">
+                快捷键
+            </h3>
+        </section>
+
+        <section style="border: 4px solid #000; background: #000; color: #00ff00; padding: 20px; margin-bottom: 5px; box-shadow: 8px 8px 0px #ff00ff;">
+            <p style="margin: 0; font-size: 14px; font-family: monospace; font-weight: bold; line-height: 1.8;">
+                ESC <span style="color: #fff;">中断当前操作</span><br>
+                Ctrl+Z <span style="color: #fff;">退出Claude模式</span><br>
+                Ctrl+V <span style="color: #fff;">粘贴图片</span><br>
+                Ctrl+C <span style="color: #fff;">强制退出</span><br>
+                Tab <span style="color: #fff;">自动补全</span>
+            </p>
+        </section>
+
+        <!-- 十、常见问题排查 -->
+        <section style="margin-bottom: 5px;">
+            <h2 style="font-size: 20px; font-weight: 800; background: #000; color: #fff; padding: 5px 20px; display: inline-block; transform: skewX(-10deg); margin-bottom: 5px;">
+                十、常见问题排查
+            </h2>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <h3 style="font-size: 18px; font-weight: 800; background: #00ff00; border: 3px solid #000; padding: 8px 15px; display: inline-block; margin-bottom: 5px;">
+                安装失败
+            </h3>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <div style="margin-bottom: 8px;">
+                <span style="display: inline-block; width: 15px; height: 15px; background: #000; color: #fff; text-align: center; line-height: 15px; font-weight: 900; margin-right: 10px; font-size: 10px; vertical-align: middle;">●</span>
+                <span style="display: inline-block; font-size: 14px; font-weight: bold; vertical-align: middle;">Node 版本过低</span>
+            </div>
+            <div style="margin-bottom: 8px;">
+                <span style="display: inline-block; width: 15px; height: 15px; background: #000; color: #fff; text-align: center; line-height: 15px; font-weight: 900; margin-right: 10px; font-size: 10px; vertical-align: middle;">●</span>
+                <span style="display: inline-block; font-size: 14px; font-weight: bold; vertical-align: middle;">npm 权限问题</span>
+            </div>
+            <div style="">
+                <span style="display: inline-block; width: 15px; height: 15px; background: #000; color: #fff; text-align: center; line-height: 15px; font-weight: 900; margin-right: 10px; font-size: 10px; vertical-align: middle;">●</span>
+                <span style="display: inline-block; font-size: 14px; font-weight: bold; vertical-align: middle;">网络问题（可换镜像）</span>
+            </div>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <h3 style="font-size: 18px; font-weight: 800; background: #ff00ff; border: 3px solid #000; padding: 8px 15px; display: inline-block; margin-bottom: 5px;">
+                模型 / API 异常
+            </h3>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <div style="margin-bottom: 8px;">
+                <span style="display: inline-block; width: 15px; height: 15px; background: #000; color: #fff; text-align: center; line-height: 15px; font-weight: 900; margin-right: 10px; font-size: 10px; vertical-align: middle;">●</span>
+                <span style="display: inline-block; font-size: 14px; font-weight: bold; vertical-align: middle;">API Key 是否正确</span>
+            </div>
+            <div style="margin-bottom: 8px;">
+                <span style="display: inline-block; width: 15px; height: 15px; background: #000; color: #fff; text-align: center; line-height: 15px; font-weight: 900; margin-right: 10px; font-size: 10px; vertical-align: middle;">●</span>
+                <span style="display: inline-block; font-size: 14px; font-weight: bold; vertical-align: middle;">是否超配额</span>
+            </div>
+            <div style="">
+                <span style="display: inline-block; width: 15px; height: 15px; background: #000; color: #fff; text-align: center; line-height: 15px; font-weight: 900; margin-right: 10px; font-size: 10px; vertical-align: middle;">●</span>
+                <span style="display: inline-block; font-size: 14px; font-weight: bold; vertical-align: middle;">模型名是否拼写错误</span>
+            </div>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <h3 style="font-size: 18px; font-weight: 800; background: #00ff00; border: 3px solid #000; padding: 8px 15px; display: inline-block; margin-bottom: 5px;">
+                Agent / Skill 不生效
+            </h3>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <div style="margin-bottom: 8px;">
+                <span style="display: inline-block; width: 15px; height: 15px; background: #000; color: #fff; text-align: center; line-height: 15px; font-weight: 900; margin-right: 10px; font-size: 10px; vertical-align: middle;">●</span>
+                <span style="display: inline-block; font-size: 14px; font-weight: bold; vertical-align: middle;">是否在项目根目录</span>
+            </div>
+            <div style="margin-bottom: 8px;">
+                <span style="display: inline-block; width: 15px; height: 15px; background: #000; color: #fff; text-align: center; line-height: 15px; font-weight: 900; margin-right: 10px; font-size: 10px; vertical-align: middle;">●</span>
+                <span style="display: inline-block; font-size: 14px; font-weight: bold; vertical-align: middle;">是否加载对应配置</span>
+            </div>
+            <div style="">
+                <span style="display: inline-block; width: 15px; height: 15px; background: #000; color: #fff; text-align: center; line-height: 15px; font-weight: 900; margin-right: 10px; font-size: 10px; vertical-align: middle;">●</span>
+                <span style="display: inline-block; font-size: 14px; font-weight: bold; vertical-align: middle;">是否被模型限制</span>
+            </div>
+        </section>
+
+        <!-- 十一、资源推荐 -->
+        <section style="margin-bottom: 5px;">
+            <h2 style="font-size: 20px; font-weight: 800; background: #000; color: #fff; padding: 5px 20px; display: inline-block; transform: skewX(-10deg); margin-bottom: 5px;">
+                十一、资源推荐（建议收藏，后续深入必看）
+            </h2>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <h3 style="font-size: 18px; font-weight: 800; background: #ff00ff; border: 3px solid #000; padding: 8px 15px; display: inline-block; margin-bottom: 5px;">
+                📘 官方文档（第一优先级）
+            </h3>
+        </section>
+
+        <section style="border: 4px solid #000; background: #fff; padding: 20px; margin-bottom: 5px; box-shadow: 6px 6px 0px #00ff00;">
+            <p style="margin: 0 0 15px 0; font-size: 15px; font-weight: 900; color: #000; display: inline-block; vertical-align: middle;">Claude Code 官方文档</p>
+            <p style="margin: 0 0 20px 0; font-size: 13px; font-weight: bold; color: #000;">👉 https://docs.anthropic.com/claude/docs/claude-code</p>
+            <p style="margin: 0 0 20px 0; font-size: 14px; font-weight: bold; color: #666; display: inline-block; vertical-align: middle;">安装、配置、CLI 命令、Agent / Skill 的权威说明，版本更新也最及时。</p>
+
+            <hr style="border: 2px solid #000; margin: 20px 0;">
+
+            <p style="margin: 0 0 15px 0; font-size: 15px; font-weight: 900; color: #000; display: inline-block; vertical-align: middle;">Anthropic API 官方文档</p>
+            <p style="margin: 0 0 20px 0; font-size: 13px; font-weight: bold; color: #000;">👉 https://docs.anthropic.com/claude/reference</p>
+            <p style="margin: 0 0 20px 0; font-size: 14px; font-weight: bold; color: #666; display: inline-block; vertical-align: middle;">模型说明、参数配置、Token 计费规则，理解模型行为必看。</p>
+
+            <hr style="border: 2px solid #000; margin: 20px 0;">
+
+            <p style="margin: 0 0 15px 0; font-size: 15px; font-weight: 900; color: #000; display: inline-block; vertical-align: middle;">MCP（Model Context Protocol）官方说明</p>
+            <p style="margin: 0 0 20px 0; font-size: 13px; font-weight: bold; color: #000;">👉 https://docs.anthropic.com/claude/docs/model-context-protocol</p>
+            <p style="margin: 0; font-size: 14px; font-weight: bold; color: #666;">了解 Claude 如何"接入外部世界"，做工程级 AI 集成一定要读。</p>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <h3 style="font-size: 18px; font-weight: 800; background: #00ff00; border: 3px solid #000; padding: 8px 15px; display: inline-block; margin-bottom: 5px;">
+                🧩 常用 Skill / Agent 资源
+            </h3>
+        </section>
+
+        <section style="border: 4px solid #000; background: #ff00ff; padding: 20px; margin-bottom: 5px; box-shadow: 6px 6px 0px #000;">
+            <p style="margin: 0 0 15px 0; font-size: 15px; font-weight: 900; color: #000; display: inline-block; vertical-align: middle;">Claude Code GitHub 官方组织</p>
+            <p style="margin: 0 0 20px 0; font-size: 13px; font-weight: bold; color: #000;">👉 https://github.com/anthropics</p>
+            <p style="margin: 0 0 20px 0; font-size: 14px; font-weight: bold; color: #666; display: inline-block; vertical-align: middle;">官方示例、协议规范、工具代码，适合抄作业和理解设计思路。</p>
+
+            <hr style="border: 2px solid #000; margin: 20px 0;">
+
+            <p style="margin: 0 0 15px 0; font-size: 15px; font-weight: 900; color: #000; display: inline-block; vertical-align: middle;">社区维护的 Claude Code 示例仓库（搜索入口）</p>
+            <p style="margin: 0 0 20px 0; font-size: 13px; font-weight: bold; color: #000;">👉 https://github.com/search?q=claude+code+agent&amp;type=repositories</p>
+            <p style="margin: 0; font-size: 14px; font-weight: bold; color: #666;">能找到不少实战型 Agent / Skill，例如代码审查、测试生成、文档整理。</p>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <h3 style="font-size: 18px; font-weight: 800; background: #ff00ff; border: 3px solid #000; padding: 8px 15px; display: inline-block; margin-bottom: 5px;">
+                💬 社区与交流渠道
+            </h3>
+        </section>
+
+        <section style="border: 4px solid #000; background: #00ff00; padding: 20px; margin-bottom: 5px; box-shadow: 6px 6px 0px #000;">
+            <p style="margin: 0 0 15px 0; font-size: 15px; font-weight: 900; color: #000; display: inline-block; vertical-align: middle;">Anthropic 官方 Discord</p>
+            <p style="margin: 0 0 20px 0; font-size: 13px; font-weight: bold; color: #000;">👉 https://discord.gg/anthropic</p>
+            <p style="margin: 0 0 20px 0; font-size: 14px; font-weight: bold; color: #666; display: inline-block; vertical-align: middle;">Claude 新功能、Claude Code 使用经验，第一时间都在这里讨论。</p>
+        </section>
+
+        <section style="margin-bottom: 5px;">
+            <h3 style="font-size: 18px; font-weight: 800; background: #ff00ff; border: 3px solid #000; padding: 8px 15px; display: inline-block; margin-bottom: 5px;">
+                🔖 延伸学习建议（个人经验）
+            </h3>
+        </section>
+
+        <section style="border: 4px solid #000; background: #fff; padding: 20px; margin-bottom: 5px; box-shadow: 6px 6px 0px #ff00ff;">
+            <div style="margin-bottom: 12px;">
+                <span style="display: inline-block; width: 15px; height: 15px; background: #000; color: #fff; text-align: center; line-height: 15px; font-weight: 900; margin-right: 10px; font-size: 10px; vertical-align: middle;">●</span>
+                <span style="display: inline-block; font-size: 14px; font-weight: bold; vertical-align: middle;"><span style="background: #ffff00; border: 2px solid #000; padding: 0 4px;">先看官方文档，再抄社区配置</span></span>
+            </div>
+            <div style="margin-bottom: 12px;">
+                <span style="display: inline-block; width: 15px; height: 15px; background: #000; color: #fff; text-align: center; line-height: 15px; font-weight: 900; margin-right: 10px; font-size: 10px; vertical-align: middle;">●</span>
+                <span style="display: inline-block; font-size: 14px; font-weight: bold; vertical-align: middle;"><span style="background: #ffff00; border: 2px solid #000; padding: 0 4px;">优先写 Skill，再抽象成 Agent</span></span>
+            </div>
+            <div style="margin-bottom: 12px;">
+                <span style="display: inline-block; width: 15px; height: 15px; background: #000; color: #fff; text-align: center; line-height: 15px; font-weight: 900; margin-right: 10px; font-size: 10px; vertical-align: middle;">●</span>
+                <span style="display: inline-block; font-size: 14px; font-weight: bold; vertical-align: middle;"><span style="background: #ffff00; border: 2px solid #000; padding: 0 4px;">MCP 只接"你真的需要"的系统</span></span>
+            </div>
+            <div style="margin-top: 20px; border: 4px solid #000; background: #ff00ff; padding: 15px;">
+                <p style="margin: 0; font-size: 14px; font-weight: bold; color: #000;">
+                    把 Claude Code 当成：<br>
+                    > <span style="background: #ffff00; border: 2px solid #000; padding: 0 4px;">"一个需要你认真配置的开发工具，而不是一次性 AI 玩具"</span>
+                </p>
+            </div>
+        </section>
+
+        <!-- 五、页脚 (工业印记) -->
+
+        <!-- 组件：分隔线 (超粗实线) -->
+        <div style="height: 10px; background: #000; margin: 50px 0;"></div>
+
+        <!-- 组件：签名 -->
+        <section style="text-align: left;">
+            <p style="margin: 0; font-size: 40px; font-weight: 900; letter-spacing: -2px; line-height: 0.8;">BRUTAL</p>
+            <p style="margin: 0; font-size: 12px; font-weight: bold; background: #ff00ff; display: inline-block; padding: 2px 5px;">EST. 2026 / NO RULES</p>
+        </section>
+
+    </section>
+
+</body>
+
+</html>

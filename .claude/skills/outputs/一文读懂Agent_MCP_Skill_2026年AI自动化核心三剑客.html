@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<div id="ueditor_0" class="mock-iframe">
+    <div class="mock-iframe-document">
+        <div class="mock-iframe-body">
+            <div spellcheck="false" lang="en" class="view rich_media_content autoTypeSetting24psection">
+                <div contenteditable="true" translate="no" class="ProseMirror" style="padding: 0px 4px; min-height: 480px;">
+
+                    <!-- 引言 -->
+                    <p style="margin: 0 0 20px;text-align: justify;font-size: 15px;">
+                        <span>
+                            你有没有过这样的经历？每天被报表、数据查询和客服回复这些重复工作填满，明明已经在使用 AI 工具，却依然感觉流程割裂、效率有限。不是工具本身不够强，而是它们彼此之间缺乏统一的协作方式。面向 2026 年，Agent、MCP 与 Skill 的组合被广泛认为将成为 AI 自动化体系的重要演进方向，它们并非孤立的概念，而是一套逐渐成型的工程化解决方案。
+                        </span>
+                    </p>
+
+                    <p style="margin: 0 0 20px;text-align: justify;font-size: 15px;">
+                        <span>
+                            如果用一个项目团队来类比：Agent 负责理解目标并制定执行计划；MCP 提供标准化的能力与上下文接口；Skill 则是被封装、可复用的具体能力模块。本文将从技术背景、定义边界、协作方式、实际场景与成本控制五个角度，系统拆解这三者的关系。
+                        </span>
+                    </p>
+
+                    <!-- 技术背景 -->
+                    <p style="margin: 0 0 20px;text-align: justify;font-size: 15px;">
+                        <span>
+                            随着大模型能力提升，企业和开发者对 AI 的需求已经从“单轮问答”升级为“多步骤任务自动完成”，例如跨系统报表生成、多工具协同办公等。但在早期实践中，AI 自动化落地普遍面临以下问题：
+                        </span>
+                    </p>
+
+                    <p style="font-size: 15px;">
+                        <strong>工具调用碎片化：</strong>不同模型与工具接口标准不统一，工程适配成本高。
+                    </p>
+                    <p style="font-size: 15px;">
+                        <strong>复杂任务难以闭环：</strong>缺乏统一的任务规划与状态管理机制。
+                    </p>
+                    <p style="font-size: 15px;">
+                        <strong>上下文与权限难管理：</strong>工具访问边界不清晰，安全与稳定性难以保证。
+                    </p>
+
+                    <p style="margin: 0 0 20px;text-align: justify;font-size: 15px;">
+                        <span>
+                            在这一背景下，Anthropic 于 2024 年提出 MCP（Model Context Protocol），用于统一模型与外部能力的交互方式；同时，Agent 架构在 OpenAI、Anthropic 等实践中逐渐成熟，而 Skill 则作为可复用能力模块被广泛采用。这三者共同构成了当前 AI 自动化的核心工程范式。
+                        </span>
+                    </p>
+
+                    <!-- Agent -->
+                    <p style="margin: 0 0 20px;text-align: justify;font-size: 15px;">
+                        <span>
+                            Agent 并不是一个“有意识的智能体”，而是由大模型驱动的任务执行框架。它通常由目标理解、任务拆解、工具调用与结果反馈等环节组成，能够在给定目标的前提下，持续推进任务直至完成或中止。
+                        </span>
+                    </p>
+
+                    <p style="margin: 0 0 20px;text-align: justify;font-size: 15px;">
+                        <span>
+                            在工程实践中，Agent 的核心职责是<strong>决策与执行统筹</strong>：解析用户意图、规划执行路径，并在执行过程中根据反馈进行重试、修正或重规划。这一模式已广泛应用于 OpenAI 的 Agents 与 Anthropic 的 Claude 工具调用体系中。
+                        </span>
+                    </p>
+
+                    <p style="font-size: 15px;">
+                        <strong>Agent 的关键特征包括：</strong>
+                    </p>
+                    <ul style="font-size: 14px;">
+                        <li>基于上下文的任务规划能力</li>
+                        <li>通过工具调用完成非语言操作</li>
+                        <li>支持多轮反馈与策略调整（如 Retry、Reflection）</li>
+                        <li>可与其他 Agent 协作完成复杂流程</li>
+                    </ul>
+
+                    <!-- MCP -->
+                    <p style="margin: 20px 0;text-align: justify;font-size: 15px;">
+                        <span>
+                            MCP（Model Context Protocol）是 Anthropic 提出的开放协议，用于规范模型如何安全、标准化地访问外部工具、数据与环境上下文。它并不负责“决定做什么”，而是为 Agent 的决策提供一致、可控的能力接口。
+                        </span>
+                    </p>
+
+                    <p style="margin: 0 0 20px;text-align: justify;font-size: 15px;">
+                        <span>
+                            可以将 MCP 理解为 AI 世界中的“USB-C 接口”：它定义了统一的交互格式，使不同模型、不同能力模块能够以一致的方式被调用，从而显著降低系统集成成本。
+                        </span>
+                    </p>
+
+                    <p style="font-size: 15px;">
+                        <strong>MCP 的核心价值体现在：</strong>
+                    </p>
+                    <ul style="font-size: 14px;">
+                        <li>统一工具与上下文暴露标准</li>
+                        <li>隔离模型与底层系统实现细节</li>
+                        <li>提供权限与安全边界控制</li>
+                        <li>支持能力的可插拔扩展</li>
+                    </ul>
+
+                    <!-- Skill -->
+                    <p style="margin: 20px 0;text-align: justify;font-size: 15px;">
+                        <span>
+                            Skill 是被封装的、可被 Agent 调用的具体能力模块，概念上与 OpenAI 的 Tool / Function 高度一致。它们通常对应一个明确的操作目标，例如数据查询、文件生成、消息发送等。
+                        </span>
+                    </p>
+
+                    <p style="margin: 0 0 20px;text-align: justify;font-size: 15px;">
+                        <span>
+                            Skill 本身不负责决策，只负责在被调用时稳定、可预测地完成某项操作。这种职责分离使能力能够被多个 Agent、多个流程重复复用。
+                        </span>
+                    </p>
+
+                    <ul style="font-size: 14px;">
+                        <li>高内聚、低耦合</li>
+                        <li>按需加载，降低资源消耗</li>
+                        <li>参数化配置，适配不同场景</li>
+                        <li>可通过 MCP 安全暴露给模型</li>
+                    </ul>
+
+                    <!-- 总结 -->
+                    <p style="margin: 30px 0;text-align: center;font-size: 14px;font-weight: bold;">
+                        AGENT（决策与执行） + MCP（标准化接口） + SKILL（能力模块） = 可落地的 AI 自动化架构
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</html>

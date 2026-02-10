@@ -1,13 +1,21 @@
 ---
 name: wechat-article-formatter
-description: "Comprehensive WeChat public account article formatting skill for creating professionally styled articles with matching image prompts. Use when Claude needs to format articles for WeChat public accounts, including: (1) Applying styling templates to article content, (2) Generating HTML files compatible with WeChat editor, (3) Creating markdown files with article metadata and image generation prompts, (4) Recommending suitable styling based on article content, (5) Generating AI images for article illustrations with user-confirmed prompts."
+description: "Comprehensive WeChat public account article formatting skill for creating professionally styled articles with matching image prompts. Use when Claude needs to format articles for WeChat public accounts, including: (1) Applying styling templates to article content, (2) Generating HTML files compatible with WeChat editor, (3) Creating markdown files with image prompts for user review and editing, (4) Recommending suitable styling based on article content, (5) Saving prompts to numbered output folders (output/序号+标题/), allowing users to edit md files before proceeding with image generation."
 ---
 
 # 微信公众号排版技能
 
 ## 概述
 
-本技能提供完整的微信公众号文章排版解决方案，能够将原始文章内容转换为符合微信公众号排版规范的HTML文件，并生成包含文章元数据和配图prompt的Markdown文件。
+本技能提供完整的微信公众号文章排版解决方案，能够将原始文章内容转换为符合微信公众号排版规范的HTML文件。
+
+核心工作流程：
+1. 分析文章内容并推荐风格
+2. 创建新的输出文件夹（`output/序号+标题/`）
+3. 生成图片 prompts 并保存为 Markdown 文件
+4. 让用户审核并允许用户直接修改 md 文件
+5. 根据修改后的 prompts 生成图片
+6. 将图片插入到 HTML 排版中
 
 技能提供多种设计风格模板，支持风格推荐和选择，确保文章内容与视觉效果完美匹配。
 
@@ -23,16 +31,24 @@ description: "Comprehensive WeChat public account article formatting skill for c
 - 根据文章内容智能推荐最合适的风格
 - 允许用户手动选择或调整风格
 
-### 3. HTML生成
-- 将文章内容应用到选定的风格模板
-- 确保生成的HTML符合微信公众号编辑器限制
-- 生成以文章标题命名的HTML文件
+### 3. 图片 Prompt 生成与审核（新流程）
+- 根据文章内容生成封面图和文中配图的 prompts
+- **创建新的输出文件夹**（命名格式：`output/序号+标题/`）
+- 将 prompts 保存为 Markdown 文件到该文件夹
+- **让用户审核并允许用户直接修改 md 文件**
+- 等待用户确认修改后的 prompts
 
 ### 4. 图片生成
-- 根据文章内容生成封面图和文中配图的prompts
-- 调用AI生成图片
-- 在Markdown文件中引用生成的图片
-- 将图片插入到HTML排版中
+- 读取用户修改后的 md 文件，获取最终 prompts
+- 调用脚本生成对应的图片
+- 将图片保存到同一文件夹中
+- 在 md 文件中引用生成的图片
+
+### 5. HTML生成
+- 将文章内容应用到选定的风格模板
+- 插入生成的图片到 HTML 排版中
+- 确保生成的HTML符合微信公众号编辑器限制
+- 将 HTML 文件保存到同一文件夹中
 
 ## 快速开始
 
@@ -40,8 +56,11 @@ description: "Comprehensive WeChat public account article formatting skill for c
 1. 提供文章内容给Claude
 2. Claude分析文章内容并推荐风格
 3. 用户确认风格选择
-4. Claude生成图片prompts并调用脚本生成图片
-5. Claude创建Markdown和HTML文件，将图片插入HTML
+4. Claude创建新的输出文件夹（`output/序号+标题/`）
+5. Claude生成图片prompts并保存为 md 文件
+6. **用户审核 md 文件，可以直接修改其中的 prompts**
+7. 用户确认修改后，Claude调用脚本生成图片
+8. Claude创建HTML文件，将图片插入HTML
 
 ### 示例用户请求
 - "帮我将这篇公众号文章排版成HTML"
@@ -52,7 +71,8 @@ description: "Comprehensive WeChat public account article formatting skill for c
 
 ### 脚本工具 (`scripts/`)
 
-#### `generate_image.py`
+#### `generate_image.py` (可爱卡通风格)
+生成可爱数字卡通风格的信息图，使用豆包大模型API。适用于科普教育、技术文章等需要亲和力视觉内容的场景。
 AI图片生成脚本，调用豆包大模型生成文章配图。支持prompt优化和用户审核。
 
 **保留理由：**
@@ -92,7 +112,7 @@ python scripts/generate_image.py -p "简约商务插图" -O
 - 默认: 1024x1024
 
 **环境变量：**
-- `ARK_API_KEY`: 火山引擎API密钥（需在`scripts/.env`文件中配置）
+- `TOAPIS_API_KEY`: ToApis API密钥（需在`scripts/.env`文件中配置）
 
 ### 参考文档 (`references/`)
 
@@ -112,6 +132,15 @@ python scripts/generate_image.py -p "简约商务插图" -O
 - 模板文件位置信息
 
 **何时阅读：** 当需要了解不同风格特点或选择合适风格时。
+
+#### `image_prompts.md`
+配图 Prompt 生成指南，包含：
+- 封面图和文中配图的 Prompt 生成规范和方法
+- Prompt 结构和组成要素说明
+- 不同文章类型的推荐风格对照表
+- 质量检查清单和完整示例
+
+**何时阅读：** 当需要了解如何生成高质量的配图 Prompt 时。
 
 ### 模板资产 (`assets/templates/`)
 
@@ -148,8 +177,17 @@ python scripts/generate_image.py -p "简约商务插图" -O
 3. 确保在完整的句子处截断
 
 #### 配图prompt生成
+详细的 Prompt 生成规范请参考 `references/image_prompts.md`。
+
 1. 封面图prompt：基于标题和摘要生成，风格为"modern tech minimalistic"
-2. 文中配图prompts：基于文章关键段落生成，每个prompt描述具体内容
+2. 文中配图prompts：基于文章`关键段落生成，每个prompt描述具体内容
+
+**重要**：生成prompts后，必须：
+1. 创建新的输出文件夹（`output/序号+标题/`）
+2. 将 prompts 保存为 Markdown 文件到该文件夹
+3. 告知用户 md 文件路径，让用户可以审核并直接修改
+4. 等待用户确认后，读取修改后的 md 文件
+5. 调用脚本生成图片
 
 ### 风格推荐逻辑
 
@@ -169,9 +207,58 @@ python scripts/generate_image.py -p "简约商务插图" -O
 
 ### 文件输出规范
 
-1. **HTML文件**：以文章标题命名，特殊字符替换为下划线
-2. **Markdown文件**：同名.md文件，包含：
-   ```
+### 输出文件夹命名
+
+每次创建新的输出文件夹，命名格式为：`output/序号+标题/`
+- 序号从 01 开始递增
+- 标题从文章标题中提取，移除特殊字符
+- 示例：`output/01_AI技术趋势/`、`output/02_产品设计指南/`
+
+### Prompt 审核文件（先生成）
+
+首先在输出文件夹中创建以文章标题命名的 `.md` 文件，包含：
+```markdown
+# [文章标题]
+
+## 文章简介
+[摘要内容]
+
+## 风格选择
+[选定的风格名称]
+
+---
+
+## 封面图 Prompt
+[封面图的 prompt]
+
+---
+
+## 文中配图 Prompts
+
+### 配图 1
+[配图1的 prompt]
+
+### 配图 2
+[配图2的 prompt]
+
+... 更多配图
+```
+
+**用户审核流程：**
+1. 展示生成的 md 文件路径给用户
+2. 用户可以打开 md 文件直接修改 prompts
+3. 用户确认后继续下一步
+
+### 最终输出文件
+
+用户确认后，在同一文件夹中生成：
+
+1. **HTML文件**：以文章标题命名（`.html`）
+   - 包含完整的微信公众号排版
+   - 已插入生成的图片
+
+2. **Markdown文件**：同名 `.md` 文件，更新为：
+   ```markdown
    # 文章标题
 
    ## 文章简介
@@ -179,30 +266,34 @@ python scripts/generate_image.py -p "简约商务插图" -O
 
    ## 封面图
    **Prompt:**
-   [生成的prompt]
+   [最终使用的prompt]
 
    **图片:**
-   ![封面图](../images/xxx.png)
+   ![封面图](封面图文件名.jpg)
 
    ## 文中配图
-
-   ### 配图 1
-   **Prompt:**
-   [prompt 1]
-
-   **图片:**
-   ![配图1](../images/xxx.png)
-
-   ... 更多配图
+   ... (包含每个配图的 prompt 和图片引用)
    ```
 
 ## 使用示例
 
 ### 示例1：完整排版流程
-用户提供文章 → Claude分析内容 → 推荐风格 → 用户确认 → 生成图片prompts → 调用脚本生成图片 → 创建HTML和MD文件并插入图片
+1. 用户提供文章
+2. Claude分析内容并推荐风格
+3. 用户确认风格选择
+4. Claude创建输出文件夹 `output/01_文章标题/`
+5. Claude生成图片prompts并保存为 md 文件
+6. 用户审核 md 文件，可以直接修改 prompts
+7. 用户确认后，Claude调用脚本生成图片
+8. Claude创建HTML文件，将图片插入HTML
 
 ### 示例2：指定风格
-用户提供文章并指定"扁平风格" → Claude使用指定模板 → 生成图片prompts → 调用脚本生成图片 → 创建HTML和MD文件并插入图片
+1. 用户提供文章并指定"扁平风格"
+2. Claude创建输出文件夹 `output/02_文章标题/`
+3. Claude生成图片prompts并保存为 md 文件
+4. 用户审核 md 文件，可以直接修改 prompts
+5. 用户确认后，Claude调用脚本生成图片
+6. Claude创建HTML文件，将图片插入HTML
 
 ## 故障排除
 
@@ -219,10 +310,10 @@ python scripts/generate_image.py -p "简约商务插图" -O
 
 3. **图片生成失败**
    - 检查API配置是否正确
-   - 确认`scripts/.env`中ARK_API_KEY已配置
+   - 确认`scripts/.env`中TOAPIS_API_KEY已配置
 
 ---
 
-**技能版本：** 2.0
-**最后更新：** 2026-02-06
+**技能版本：** 3.0
+**最后更新：** 2026-02-09
 **兼容性：** 微信公众号编辑器最新规范
